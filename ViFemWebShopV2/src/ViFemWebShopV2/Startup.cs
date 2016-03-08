@@ -18,10 +18,10 @@ namespace ViFemWebShopV2
         {
             var connString = @"Data Source=(localdb)\mssqllocaldb;Initial Catalog=MyGarage;Integrated Security=True;Pooling=False";
 
-            services.AddEntityFramework()
-                .AddSqlServer()
-                .AddDbContext<MyGarageContext>(options =>
-                options.UseSqlServer(connString));
+            //services.AddEntityFramework()
+            //    .AddSqlServer()
+            //    .AddDbContext<MyGarageContext>(options =>
+            //    options.UseSqlServer(connString));
 
             services.AddMvc();
         }
