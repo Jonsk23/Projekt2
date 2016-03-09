@@ -16,7 +16,7 @@ namespace ViFemWebShopV2
         // For more information on how to configure your application, visit http://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            var connString = @"";
+            var connString = @"Server=tcp:lzqpwuvj9p.database.windows.net,1433;Database=VIVDTA;User ID=VIVUSER@lzqpwuvj9p;Password={Vivawa2016};Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;)";
 
             //services.AddEntityFramework()
             //    .AddSqlServer()
