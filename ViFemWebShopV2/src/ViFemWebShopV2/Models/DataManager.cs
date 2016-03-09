@@ -8,16 +8,23 @@ namespace ViFemWebShopV2.Models
 {
     public class DataManager
     {
-        UserAccountContext context;
+        UserAccountContext userAccountContext;
+        ProductContext productContext;
 
         public DataManager(UserAccountContext context)
         {
-            this.context = context;
+            context = userAccountContext;
+        }
+
+        public DataManager(ProductContext context)
+        {
+            context = productContext;
         }
 
         public void AddUser(AddUserVM viewModel)
         {
-            context.Users.Add(new User {
+            userAccountContext.Users.Add(new User
+            {
                 //ClientID = viewModel.ClientID,
                 //BusinessAccount = viewModel.BusinessAccount,
                 SocialSecurityNo = viewModel.SocialSecurityNo,
@@ -25,9 +32,13 @@ namespace ViFemWebShopV2.Models
                 LastName = viewModel.LastName,
                 Email = viewModel.Email,
                 Password = viewModel.Password,
-                DeliveryAddress = new Address { Street=viewModel.Street, City=viewModel.City, ZipCode=viewModel.ZipCode}
+                DeliveryAddress = new Address { Street = viewModel.Street, City = viewModel.City, ZipCode = viewModel.ZipCode }
             });
-            context.SaveChanges();
+            userAccountContext.SaveChanges();
+        }
+
+        public void AddProduct(AddProductVM viewModel)
+        {
 
         }
     }
