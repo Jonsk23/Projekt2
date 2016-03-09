@@ -41,7 +41,12 @@ namespace ViFemWebShopV2.Models
         {
             productContext.Products.Add(new Product
             {
-                Name=viewModel.
+                Name = viewModel.Name,
+                //ProductID = viewModel.ProductID,
+                Price = viewModel.Price,
+                Description = viewModel.Description,
+                ItemsInStock = viewModel.ItemsInStock,
+                Category = viewModel.Category
             });
             productContext.SaveChanges();
         }
