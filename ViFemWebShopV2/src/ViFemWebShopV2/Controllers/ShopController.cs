@@ -14,11 +14,10 @@ namespace ViFemWebShopV2.Controllers
             return View();
         }
 
-        //public IActionResult Home()
-        //{
-
-        //}
-
+        public IActionResult Products()
+        {
+            return View();
+        }
         //public IActionResult Category()
         //{
 
