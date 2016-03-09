@@ -14,7 +14,6 @@ namespace ViFemWebShopV2.Controllers
             return View();
         }
 
-
         //public IActionResult Home()
         //{
 
