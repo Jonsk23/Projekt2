@@ -5,7 +5,8 @@ using System.Threading.Tasks;
 
 namespace ViFemWebShopV2.Models
 {
-    public class BusinessAccountContext
+    public class User
     {
+        public int MyProperty { get; set; }
     }
 }
