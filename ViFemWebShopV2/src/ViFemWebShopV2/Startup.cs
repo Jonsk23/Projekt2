@@ -16,7 +16,7 @@ namespace ViFemWebShopV2
         // For more information on how to configure your application, visit http://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            var connString = @"Data Source=(localdb)\mssqllocaldb;Initial Catalog=MyGarage;Integrated Security=True;Pooling=False";
+            var connString = @"";
 
             //services.AddEntityFramework()
             //    .AddSqlServer()
