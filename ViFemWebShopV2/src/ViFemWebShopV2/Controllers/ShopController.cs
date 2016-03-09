@@ -8,7 +8,7 @@ using Microsoft.AspNet.Mvc;
 
 namespace ViFemWebShopV2.Controllers
 {
-    public class HomeController : Controller
+    public class ShopController : Controller
     {
         // GET: /<controller>/
         public IActionResult Index()
