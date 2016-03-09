@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -7,16 +8,40 @@ namespace ViFemWebShopV2.ViewModels
 {
     public class AddUserVM
     {
-       // public int BusinessAccount { get; internal set; }
-       // public int ClientID { get; internal set; }
+        // public int BusinessAccount { get; internal set; }
+        // public int ClientID { get; internal set; }
         //public string DeliveryAddress { get; internal set; }
+
+        [Display(Name = "Street")]
+        [Required(ErrorMessage = "Street required")]
         public string Street { get; set; }
+
+        [Display(Name = "City")]
+        [Required(ErrorMessage = "City required")]
         public string City { get; set; }
+
+        [Display(Name = "Zip code")]
+        [RegularExpression(@"^(\d{5})$", ErrorMessage = "Five (5) digit zip code required")]
         public string ZipCode { get; set; }
+
+        [Required(ErrorMessage = "E-mail required")]
+        [RegularExpression("^[a-zA-Z0-9_\\.-]+@([a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$", ErrorMessage = "E-mail is not valid")]
         public string Email { get; internal set; }
+
+        [Display(Name = "First name")]
+        [Required(ErrorMessage = "First name required")]
         public string FirstName { get; internal set; }
+
+        [Display(Name = "Last name")]
+        [Required(ErrorMessage = "Last name required")]
         public string LastName { get; internal set; }
+
+        [Display(Name = "Password")]
+        [RegularExpression(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\da-zA-Z]).{8,15}$", ErrorMessage = "Password need to contain at least 1 number, 1 lowercase letter and 1 uppercase letter. Only letters A-Z are allowed.")]
         public string Password { get; internal set; }
+
+        [Display(Name = "Social Security Number")]
+        [RegularExpression("^[0-9]{2}[0-1][0-9][0-9]{2}[-+][0-9]{4}$", ErrorMessage = "SSN is not valid")]
         public string SocialSecurityNo { get; internal set; }
     }
 }
