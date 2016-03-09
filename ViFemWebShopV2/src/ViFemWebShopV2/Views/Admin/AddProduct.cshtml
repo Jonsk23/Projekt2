@@ -1,0 +1,42 @@
+﻿@model AddProductVM
+
+@{ 
+    ViewBag.Title = "Add Product";
+}
+
+<h1>
+    Add new product
+</h1>
+<div asp-validation-summary="ValidationSummary.All"></div>
+<form asp-controller="Admin" asp-action="AddProduct">
+    <label asp-for="Name"></label>
+    <input asp-for="Name" />
+    <span asp-validation-for="Name"></span>
+    <br />
+
+    <label asp-for="ItemsInStock"></label>
+    <input asp-for="ItemsInStock" />
+    <span asp-validation-for="ItemsInStock"></span>
+    <br />
+
+    <label asp-for="Price"></label>
+    <input asp-for="Price" />
+    <span asp-validation-for="Price"></span>
+    <br />
+
+    <label asp-for="Description"></label>
+    <input asp-for="Description" />
+    <span asp-validation-for="Description"></span>
+    <br />
+
+    <label asp-for="Category"></label>
+    <input asp-for="Category" />
+    <span asp-validation-for="Category"></span>
+    <br />
+
+    <input type="submit" value="Add new product" />
+</form>
+@section script{
+    <script src="~/scripts/jquery.validate.js"></script>
+    <script src="~/scripts/jquery.validate.unobtrusive.js"></script>
+}
