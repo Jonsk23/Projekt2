@@ -8,7 +8,7 @@ namespace ViFemWebShopV2.Models
 {
     public class ProductContext : DbContext
     {
-        public DbSet<Product> Users { get; set; }
+        public DbSet<Product> Products { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Product>().ToTable("Products");

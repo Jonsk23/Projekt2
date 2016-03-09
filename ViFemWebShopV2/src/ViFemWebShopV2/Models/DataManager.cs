@@ -13,12 +13,12 @@ namespace ViFemWebShopV2.Models
 
         public DataManager(UserAccountContext context)
         {
-            context = userAccountContext;
+            userAccountContext = context;
         }
 
         public DataManager(ProductContext context)
         {
-            context = productContext;
+            productContext = context;
         }
 
         public void AddUser(AddUserVM viewModel)
@@ -39,7 +39,11 @@ namespace ViFemWebShopV2.Models
 
         public void AddProduct(AddProductVM viewModel)
         {
-
+            productContext.Products.Add(new Product
+            {
+                Name=viewModel.
+            });
+            productContext.SaveChanges();
         }
     }
 }
