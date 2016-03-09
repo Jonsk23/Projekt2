@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace ViFemWebShopV2.ViewModels
 {
-    public class VMClass
+    public class CheckoutVM
     {
     }
 }
