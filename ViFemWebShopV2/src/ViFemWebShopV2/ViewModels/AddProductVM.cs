@@ -7,7 +7,7 @@ namespace ViFemWebShopV2.ViewModels
 {
     public class AddProductVM
     {
-        public string ProductID { get; set; }
+      //  public string ProductID { get; set; }
         public string Name { get; set; }
         public int ItemsInStock { get; set; }
         public int Price { get; set; }
