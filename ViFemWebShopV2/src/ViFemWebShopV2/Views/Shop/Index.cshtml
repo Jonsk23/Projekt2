@@ -1,9 +1,4 @@
-﻿
-@*
-    @using ViFemWebShopV2.Models
-    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
 
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout";
@@ -91,8 +86,11 @@
     </div>
 
     <!-- Script to Activate the Carousel -->
-<script>
+@section script{
+    <script>
     $('.carousel').carousel({
         interval: 5000 //changes the speed
     })
 </script>
+}
+
