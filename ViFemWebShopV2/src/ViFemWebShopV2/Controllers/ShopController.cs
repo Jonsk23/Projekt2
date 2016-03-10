@@ -19,7 +19,7 @@ namespace ViFemWebShopV2.Controllers
             return View();
         }
 
-        public IActionResult Blog()
+        public IActionResult Kundvagn()
         {
             return View();
         }
