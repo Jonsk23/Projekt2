@@ -14,7 +14,7 @@
     <script src="/scripts/jquery.js"></script>
     <!-- Bootstrap Core JavaScript -->
     <script src="/scripts/bootstrap.js"></script>
-
+    @RenderSection("script", false)
     <!-- Bootstrap Core CSS -->
     <link href="~/css/bootstrap.css" rel="stylesheet" />
     <link href="~/css/bootstrap.min.css" rel="stylesheet" />
@@ -75,7 +75,7 @@
         </div>
         <!-- /.container -->
     </nav>
-    <div>
+    <div class="container">
         @RenderBody()
     </div>
     <footer>
