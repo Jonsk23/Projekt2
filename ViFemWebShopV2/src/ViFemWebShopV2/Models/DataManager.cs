@@ -24,6 +24,8 @@ namespace ViFemWebShopV2.Models
             if(BusinessAccount == null)
             {
                 Debug.WriteLine("Reg number not found");
+                //ADD ERROR /THROW EXCEPTION SOMEHOW?
+
                 return; 
             }
 
