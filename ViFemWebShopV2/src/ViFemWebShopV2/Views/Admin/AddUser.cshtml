@@ -1,6 +1,6 @@
 ﻿@using ViFemWebShopV2.ViewModels
 @model AddUserVM
-@addTagHelper "*,Microsoft.AspNet.Mac.TagHelpers"
+@addTagHelper "*,Microsoft.AspNet.Mvc.TagHelpers"
 
 @{
     ViewBag.Title = "Add customer";
@@ -37,10 +37,6 @@
     <label asp-for="Password"></label>
     <input asp-for="Password" />
     <span asp-validation-for="Password"></span>
-    <br />
-    <label asp-for="SocialSecurityNo"></label>
-    <input asp-for="SocialSecurityNo" />
-    <span asp-validation-for="SocialSecurityNo"></span>
     <br />
     <input type="submit" value="Create" />
 </form>
