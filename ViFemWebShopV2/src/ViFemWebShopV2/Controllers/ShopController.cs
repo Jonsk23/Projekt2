@@ -8,6 +8,7 @@ namespace ViFemWebShopV2.Controllers
 {
     public class ShopController : Controller
     {
+
         // GET: /<controller>/
         public IActionResult Index()
         {
