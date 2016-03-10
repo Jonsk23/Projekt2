@@ -8,7 +8,7 @@ namespace ViFemWebShopV2.Models
     public class User
     {
         public int ClientID { get; set; }
-        public int BusinessAccount { get; set; }
+        public int BusinessAccountId { get; set; }
         public string Password { get; set; }
         public Address DeliveryAddress { get; set; }
         public string FirstName { get; set; }
