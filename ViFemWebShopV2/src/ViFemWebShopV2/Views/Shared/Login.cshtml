@@ -7,14 +7,16 @@
     Login
 </h1>
 
-<form asp-controller="" asp-action="">
+<form asp-controller="Admin" asp-action="Login">
     <label asp-for="UserName"></label>
     <input asp-for="UserName" />
     <span asp-validation-for="UserName"></span>
+    <br />
 
     <label asp-for="Password"></label>
     <input asp-for="Password" />
     <span asp-validation-for="Password"></span>
+    <br />
 
     <input type="submit" value="Login" />
 </form>
