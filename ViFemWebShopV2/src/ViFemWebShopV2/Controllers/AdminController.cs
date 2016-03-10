@@ -13,6 +13,7 @@ namespace ViFemWebShopV2.Controllers
     public class AdminController : Controller
     {
         ProductContext productContext;
+
         public AdminController(ProductContext context)
         {
             productContext = context;
