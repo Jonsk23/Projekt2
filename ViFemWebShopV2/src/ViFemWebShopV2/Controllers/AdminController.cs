@@ -12,13 +12,12 @@ namespace ViFemWebShopV2.Controllers
 {
     public class AdminController : Controller
     {
-        ProductContext productContext;
-
-        public AdminController(ProductContext context)
+        EshopContext context;
+        public AdminController(EshopContext context)
         {
-            productContext = context;
+            this.context = context;
         }
-        // GET: /<controller>/
+
         public IActionResult Index()
         {
             return View();
@@ -28,13 +27,52 @@ namespace ViFemWebShopV2.Controllers
         {
             return View();
         }
+
         [HttpPost]
         public IActionResult AddProduct(AddProductVM viewModel)
         {
             if (!ModelState.IsValid)
+            {
                 return View(viewModel);
-            DataManager dataManager = new DataManager(productContext);
+            }
+
+            try
+            {
+            DataManager dataManager = new DataManager(context);
             dataManager.AddProduct(viewModel);
+            }
+            catch (Exception)
+            {
+                ModelState.AddModelError(string.Empty, "Vi har tyvärr inte plats i lagret för denna produkt. Gå till styrelsen och begär att bygga ut.");
+                return View(viewModel);
+            }
+            return RedirectToAction(nameof(AdminController.Index));
+
+        }
+
+        public IActionResult AddUser()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult AddUser(AddUserVM viewModel)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(viewModel);
+            }
+
+            try
+            {
+                DataManager dataManager = new DataManager(context);
+                dataManager.AddUser(viewModel);
+            }
+            catch (Exception)
+            {
+                ModelState.AddModelError(string.Empty, "You don't want your business.");
+                return View(viewModel);
+            }
             return RedirectToAction(nameof(AdminController.Index));
             
         }

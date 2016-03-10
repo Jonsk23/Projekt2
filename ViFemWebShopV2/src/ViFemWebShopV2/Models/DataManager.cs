@@ -8,38 +8,31 @@ namespace ViFemWebShopV2.Models
 {
     public class DataManager
     {
-        UserAccountContext userAccountContext;
-        ProductContext productContext;
+        EshopContext context;
 
-        public DataManager(UserAccountContext context)
+        public DataManager(EshopContext context)
         {
-            userAccountContext = context;
-        }
-
-        public DataManager(ProductContext context)
-        {
-            productContext = context;
+            this.context = context;
         }
 
         public void AddUser(AddUserVM viewModel)
         {
-            userAccountContext.Users.Add(new User
+            context.UserAccounts.Add(new User
             {
                 //ClientID = viewModel.ClientID,
                 //BusinessAccount = viewModel.BusinessAccount,
-                SocialSecurityNo = viewModel.SocialSecurityNo,
                 FirstName = viewModel.FirstName,
                 LastName = viewModel.LastName,
                 Email = viewModel.Email,
                 Password = viewModel.Password,
                 DeliveryAddress = new Address { Street = viewModel.Street, City = viewModel.City, ZipCode = viewModel.ZipCode }
             });
-            userAccountContext.SaveChanges();
+            context.SaveChanges();
         }
 
         public void AddProduct(AddProductVM viewModel)
         {
-            productContext.Products.Add(new Product
+            context.Products.Add(new Product
             {
                 Name = viewModel.Name,
                 //ProductID = viewModel.ProductID,
@@ -48,7 +41,7 @@ namespace ViFemWebShopV2.Models
                 ItemsInStock = viewModel.ItemsInStock,
                 Category = viewModel.Category
             });
-            productContext.SaveChanges();
+            context.SaveChanges();
         }
     }
 }

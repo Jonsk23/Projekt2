@@ -39,9 +39,5 @@ namespace ViFemWebShopV2.ViewModels
         [Display(Name = "Password")]
         [RegularExpression(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\da-zA-Z]).{8,15}$", ErrorMessage = "Password need to contain at least 1 number, 1 lowercase letter and 1 uppercase letter. Only letters A-Z are allowed.")]
         public string Password { get; internal set; }
-
-        [Display(Name = "Social Security Number")]
-        [RegularExpression("^[0-9]{2}[0-1][0-9][0-9]{2}[-+][0-9]{4}$", ErrorMessage = "SSN is not valid")]
-        public string SocialSecurityNo { get; internal set; }
     }
 }
