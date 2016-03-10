@@ -1,5 +1,4 @@
 ﻿<!DOCTYPE html>
-
 <html>
 <head>
 
@@ -7,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
-    <meta name="author" content="">'
+    <meta name="author" content="">
 
     <title>@ViewBag.Title</title>
     <!-- jQuery -->
@@ -33,8 +32,6 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-    
-
 </head>
 <body>
 
@@ -58,20 +55,33 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li>
-                        <a href="/shop/index">Hem <span class="glyphicon glyphicon-home"></span></a>
+                    <li>      
+                        <a href="/shop/index" type ="button">Hem <span class="glyphicon glyphicon-home"></span></a>
                     </li>
                     <li>
-                        <a href="/shop/products">Produkter <span class="glyphicon glyphicon-pencil"></span></a>
+                        <a href="/shop/products" type ="button" data-toggle="dropdown">Produkter <span class="glyphicon glyphicon-pencil"></span><span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/shop/products" class="glyphicon glyphicon-file"> Papper & Block</a></li>
+                            <li><a href="/shop/products" class="glyphicon glyphicon-pencil"> Pennor & Ritmaterial</a></li>
+                            <li><a href="/shop/products" class="glyphicon glyphicon-folder-open"> Sortering & Förvaring</a></li>
+                            <li><a href="/shop/products" class="glyphicon glyphicon-envelope"> Kuvert Post & Emballage</a></li>
+                            <li><a href="/shop/products" class="glyphicon glyphicon-calendar"> Almanackor & Kalendrar</a></li>
+                            <li><a href="/shop/products" class="glyphicon glyphicon-scissors"> Skrivbordstillbehör</a></li>
+                            <li><a href="/shop/products" class="glyphicon glyphicon-blackboard"> Konferens & Presentation</a></li>
+                        </ul>  
                     </li>
                     <li>
-                        <a href="/shop/contact">Kontakt <span class="glyphicon glyphicon-envelope"></span></a>
+                        <a href="/shop/contact" type ="button">Kontakt <span class="glyphicon glyphicon-envelope"></span></a>
                     </li>
                     <li>
-                        <a href="/shop/kundvagn">Kundvagn <span class="glyphicon glyphicon-shopping-cart"></span></a>
+                        <a href="/shop/kundvagn" type ="button">Kundvagn <span class="glyphicon glyphicon-shopping-cart"></span></a>
                     </li>
                     <li>
-                        <a href="/shop/index">Mitt konto <span class="glyphicon glyphicon-user"></span></a>
+                        <a href="/shop/index" type ="button" data-toggle="dropdown">Mitt konto <span class="glyphicon glyphicon-user"></span><span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/shop/index" class="glyphicon glyphicon-edit"> Registrera konto</a></li>
+                            <li><a href="/shop/index" class="glyphicon glyphicon-log-in"> Logga in</a></li>
+                        </ul>  
                     </li>
                 </ul>
             </div>
@@ -79,7 +89,7 @@
         </div>
         <!-- /.container -->
     </nav>
-    <div>
+    <div class="container">
         @RenderBody()
     </div>
     <footer>
@@ -91,6 +101,5 @@
             </div>
         </div>
     </footer>
-
 </body>
 </html>
