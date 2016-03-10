@@ -17,12 +17,14 @@ namespace ViFemWebShopV2.ViewModels
         [EmailAddress(ErrorMessage = "E-mail is not valid")]
         public string Email { get; set; }
 
+        [Display(Name = "User name")]
+        [Required(ErrorMessage = "Username required")]
+        public string UserName { get; set; }
+
         [Display(Name = "First name")]
-        [Required(ErrorMessage = "First name required")]
         public string FirstName { get; set; }
 
         [Display(Name = "Last name")]
-        [Required(ErrorMessage = "Last name required")]
         public string LastName { get; set; }
 
         [Display(Name = "Password")]
