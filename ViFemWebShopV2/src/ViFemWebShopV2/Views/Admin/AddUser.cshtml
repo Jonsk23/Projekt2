@@ -1,6 +1,49 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@using ViFemWebShopV2.ViewModels
+@model AddUserVM
 
+@{
+    ViewBag.Title = "Add customer";
+    Layout = "~/Views/Shared/_Layout";
+}
+
+<h1>Enter your information</h1>
+<div asp-validation-summary="ValidationSummary.All"></div>
+<form asp-controller="Admin" asp-action="Add">
+    <label asp-for="Street"></label>
+    <input asp-for="Street" />
+    <span asp-validation-for="Street"></span>
+    <br />
+    <label asp-for="City"></label>
+    <input asp-for="City" />
+    <span asp-validation-for="City"></span>
+    <br />
+    <label asp-for="ZipCode"></label>
+    <input asp-for="ZipCode" />
+    <span asp-validation-for="ZipCode"></span>
+    <br />
+    <label asp-for="Email"></label>
+    <input asp-for="Email" />
+    <span asp-validation-for="Email"></span>
+    <br />
+    <label asp-for="FirstName"></label>
+    <input asp-for="FirstName" />
+    <span asp-validation-for="FirstName"></span>
+    <br />
+    <label asp-for="LastName"></label>
+    <input asp-for="LastName" />
+    <span asp-validation-for="LastName"></span>
+    <br />
+    <label asp-for="Password"></label>
+    <input asp-for="Password" />
+    <span asp-validation-for="Password"></span>
+    <br />
+    <label asp-for="SocialSecurityNo"></label>
+    <input asp-for="SocialSecurityNo" />
+    <span asp-validation-for="SocialSecurityNo"></span>
+    <br />
+    <input type="submit" value="Create" />
+</form>
+@section script{
+    <script src="~/scripts/jquery.validate.js"></script>
+    <script src="~/scripts/jquery.validate.unobtrusive.js"></script>
 }
