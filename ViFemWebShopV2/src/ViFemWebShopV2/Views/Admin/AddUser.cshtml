@@ -20,6 +20,22 @@
                 <table align="center">
                     <form asp-controller="Admin" asp-action="AddUser">
                         <tr>
+                            <td><label asp-for="CompanyNumber"></label></td>
+                            <td>
+                                <input asp-for="CompanyNumber" />
+                                <span asp-validation-for="CompanyNumber"></span>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><label asp-for="CompanyPassword"></label></td>
+                            <td>
+                                <input asp-for="CompanyPassword" />
+                                <span asp-validation-for="CompanyPassword"></span>
+                            </td>
+                        </tr>
+
+                        <tr>
                             <td><label asp-for="Email"></label></td>
                             <td>
                                 <input asp-for="Email" />

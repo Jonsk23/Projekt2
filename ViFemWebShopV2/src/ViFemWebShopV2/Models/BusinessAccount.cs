@@ -11,7 +11,7 @@ namespace ViFemWebShopV2.Models
         [Key]
         public int AccountId { get; set; }
         public string BusinessName { get; set; }
-        public int CompanyAddressID { get; set; }
+        public int AddressID { get; set; }
         public string RegistrationNumber { get; set; }
         public string Password { get; set; }
     }
