@@ -21,7 +21,6 @@ namespace ViFemWebShopV2.Models
             {
                 //ClientID = viewModel.ClientID,
                 //BusinessAccount = viewModel.BusinessAccount,
-                SocialSecurityNo = viewModel.SocialSecurityNo,
                 FirstName = viewModel.FirstName,
                 LastName = viewModel.LastName,
                 Email = viewModel.Email,
