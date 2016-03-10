@@ -1,12 +1,27 @@
-﻿@{
-
+﻿@model ShopCartVM[]
+@{
     ViewBag.Title = "Min kundvagn";
-    Layout = "~/Views/Shared/_Layout";
 }
+
+<table>
+    <tr>
+        <th>Product</th>
+        <th>Price</th>
+        <th>Quantity</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.ProductName</td>
+            <td>@item.Price</td>
+            <td>@item.Quantity <a href="#">+</a><a href="#">-</a></td>
+        </tr>
+    }
+</table>
 
         <!-- /.container -->
 
-    <div class="container">
+    @*<div class="container">
 
         <div class="row">
             <div class="box">
@@ -58,6 +73,6 @@
             </div>
         </div>
 
-    </div>
+    </div>*@
     <!-- /.container -->
 

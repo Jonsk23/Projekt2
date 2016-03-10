@@ -9,6 +9,7 @@ namespace ViFemWebShopV2.ViewModels
     public class LoginVM
     {
         [Required(ErrorMessage = "Enter username")]
+        [Display(Name = "User name")]
         public string UserName { get; set; }
 
         [Required(ErrorMessage = "enter password")]
