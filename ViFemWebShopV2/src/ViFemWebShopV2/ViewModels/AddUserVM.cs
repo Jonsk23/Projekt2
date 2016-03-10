@@ -12,6 +12,7 @@ namespace ViFemWebShopV2.ViewModels
         // public int ClientID { get; internal set; }
         //public string DeliveryAddress { get; internal set; }
 
+        [Display(Name = "E-mail")]
         [Required(ErrorMessage = "E-mail required")]
         [EmailAddress(ErrorMessage = "E-mail is not valid")]
         public string Email { get; set; }
