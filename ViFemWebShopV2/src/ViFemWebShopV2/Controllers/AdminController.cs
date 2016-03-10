@@ -6,8 +6,6 @@ using Microsoft.AspNet.Mvc;
 using ViFemWebShopV2.ViewModels;
 using ViFemWebShopV2.Models;
 
-// For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
-
 namespace ViFemWebShopV2.Controllers
 {
     public class AdminController : Controller

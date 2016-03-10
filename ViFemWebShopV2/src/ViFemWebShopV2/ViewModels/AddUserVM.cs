@@ -14,20 +14,20 @@ namespace ViFemWebShopV2.ViewModels
 
         [Required(ErrorMessage = "E-mail required")]
         [EmailAddress(ErrorMessage = "E-mail is not valid")]
-        public string Email { get; internal set; }
+        public string Email { get; set; }
 
         [Display(Name = "First name")]
         [Required(ErrorMessage = "First name required")]
-        public string FirstName { get; internal set; }
+        public string FirstName { get; set; }
 
         [Display(Name = "Last name")]
         [Required(ErrorMessage = "Last name required")]
-        public string LastName { get; internal set; }
+        public string LastName { get; set; }
 
         [Display(Name = "Password")]
         [Required(ErrorMessage = "Password required")]
-        [RegularExpression(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\da-zA-Z]).{8,15}$", ErrorMessage = "Password need to contain at least 1 number, 1 lowercase letter and 1 uppercase letter. Only letters A-Z are allowed.")]
-        public string Password { get; internal set; }
+        //[RegularExpression(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\da-zA-Z]).{8,15}$", ErrorMessage = "Password need to contain at least 1 number, 1 lowercase letter and 1 uppercase letter. Only letters A-Z are allowed.")]
+        public string Password { get; set; }
 
         [Display(Name = "Street")]
         [Required(ErrorMessage = "Street required")]
