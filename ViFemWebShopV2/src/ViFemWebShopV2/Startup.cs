@@ -23,6 +23,7 @@ namespace ViFemWebShopV2
                 .AddDbContext<DbContext>(options =>
                 options.UseSqlServer(connString));
 
+
             services.AddMvc();
         }
 
