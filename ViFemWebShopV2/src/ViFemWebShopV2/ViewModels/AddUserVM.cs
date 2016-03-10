@@ -25,7 +25,7 @@ namespace ViFemWebShopV2.ViewModels
         public string ZipCode { get; set; }
 
         [Required(ErrorMessage = "E-mail required")]
-        [RegularExpression("^[a-zA-Z0-9_\\.-]+@([a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$", ErrorMessage = "E-mail is not valid")]
+        [EmailAddress(ErrorMessage = "E-mail is not valid")]
         public string Email { get; internal set; }
 
         [Display(Name = "First name")]
