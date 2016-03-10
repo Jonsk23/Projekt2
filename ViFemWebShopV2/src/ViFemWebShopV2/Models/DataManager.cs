@@ -27,6 +27,7 @@ namespace ViFemWebShopV2.Models
                 Password = viewModel.Password,
                 DeliveryAddress = new Address { Street = viewModel.Street, City = viewModel.City, ZipCode = viewModel.ZipCode }
             });
+
             context.SaveChanges();
         }
 
