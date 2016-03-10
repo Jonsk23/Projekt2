@@ -15,44 +15,65 @@
                 Enter your
                 <strong>information</strong>
             </h2>
-            @*<hr>
-            <img class="img-responsive img-border img-left" src="~/img/intro-pic.jpg" alt="">
-            <hr class="visible-xs">*@
             @*<div asp-validation-summary="ValidationSummary.All"></div>*@
             <div class="text-center">
-
-                <form asp-controller="Admin" asp-action="AddUser">
-
-                    <label asp-for="Email"></label>
-                    <input asp-for="Email" />
-                    <span asp-validation-for="Email"></span>
-                    <br />
-                    <label asp-for="FirstName"></label>
-                    <input asp-for="FirstName" />
-                    <span asp-validation-for="FirstName"></span>
-                    <br />
-                    <label asp-for="LastName"></label>
-                    <input asp-for="LastName" />
-                    <span asp-validation-for="LastName"></span>
-                    <br />
-                    <label asp-for="Password"></label>
-                    <input asp-for="Password" />
-                    <span asp-validation-for="Password"></span>
-                    <br />
-                    <label asp-for="Street"></label>
-                    <input asp-for="Street" />
-                    <span asp-validation-for="Street"></span>
-                    <br />
-                    <label asp-for="City"></label>
-                    <input asp-for="City" />
-                    <span asp-validation-for="City"></span>
-                    <br />
-                    <label asp-for="ZipCode"></label>
-                    <input asp-for="ZipCode" />
-                    <span asp-validation-for="ZipCode"></span>
-                    <br />
-                    <input type="submit" value="AddUser" />
-                </form>
+                <table align="center">
+                    <form asp-controller="Admin" asp-action="AddUser">
+                        <tr>
+                            <td><label asp-for="Email"></label></td>
+                            <td>
+                                <input asp-for="Email" />
+                                <span asp-validation-for="Email"></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label asp-for="FirstName"></label></td>
+                            <td>
+                                <input asp-for="FirstName" />
+                                <span asp-validation-for="FirstName"></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label asp-for="LastName"></label></td>
+                            <td>
+                                <input asp-for="LastName" />
+                                <span asp-validation-for="LastName"></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label asp-for="Password"></label></td>
+                            <td>
+                                <input asp-for="Password" />
+                                <span asp-validation-for="Password"></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label asp-for="Street"></label></td>
+                            <td>
+                                <input asp-for="Street" />
+                                <span asp-validation-for="Street"></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label asp-for="City"></label></td>
+                            <td>
+                                <input asp-for="City" />
+                                <span asp-validation-for="City"></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label asp-for="ZipCode"></label></td>
+                            <td>
+                                <input asp-for="ZipCode" />
+                                <span asp-validation-for="ZipCode"></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><input type="submit" value="Add as user" /></td>
+                        </tr>
+                    </form>
+                </table>
             </div>
         </div>
     </div>
