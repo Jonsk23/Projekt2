@@ -11,17 +11,27 @@ namespace ViFemWebShopV2.ViewModels
         // public int BusinessAccount { get; internal set; }
         // public int ClientID { get; internal set; }
         //public string DeliveryAddress { get; internal set; }
+        [Display(Name = "Company Number")]
+        [Required(ErrorMessage = "Company Number required")]
+        public string CompanyNumber { get; set; }
 
+        [Display(Name = "Company Password")]
+        [Required(ErrorMessage = "Company Password required")]
+        public string CompanyPassword { get; set; }
+
+        [Display(Name = "User name")]
+        [Required(ErrorMessage = "Username required")]
+        public string UserName { get; set; }
+
+        [Display(Name = "E-mail")]
         [Required(ErrorMessage = "E-mail required")]
         [EmailAddress(ErrorMessage = "E-mail is not valid")]
         public string Email { get; set; }
 
-        [Display(Name = "First name")]
-        [Required(ErrorMessage = "First name required")]
+        [Display(Name = "First name (optional)")]
         public string FirstName { get; set; }
 
-        [Display(Name = "Last name")]
-        [Required(ErrorMessage = "Last name required")]
+        [Display(Name = "Last name (optional)")]
         public string LastName { get; set; }
 
         [Display(Name = "Password")]
