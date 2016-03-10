@@ -19,13 +19,12 @@ namespace ViFemWebShopV2.Models
         {
             context.UserAccounts.Add(new User
             {
-                //ClientID = viewModel.ClientID,
-                //BusinessAccount = viewModel.BusinessAccount,
+                BusinessAccountId = 3,
                 FirstName = viewModel.FirstName,
                 LastName = viewModel.LastName,
                 Email = viewModel.Email,
                 Password = viewModel.Password,
-                DeliveryAddress = new Address { Street = viewModel.Street, City = viewModel.City, ZipCode = viewModel.ZipCode }
+                DeliveryAddressID = 3
             });
 
             context.SaveChanges();
