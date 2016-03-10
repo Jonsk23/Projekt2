@@ -1,0 +1,54 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<div class="container">
+    <div style="width:60%; margin:auto;">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th colspan="2" align="center"><h2>Add person</h2></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <form asp-controller="Admin" asp-action="AddProduct">
+                            <div class="row">
+                                <label asp-for="FirstName"></label>
+                                <input asp-for="FirstName" class="form-control" />
+                                <span asp-validation-for="FirstName"></span>
+                            </div>
+                            <div class="row">
+                                <label asp-for="LastName"></label>
+                                <input asp-for="LastName" class="form-control" />
+                                <span asp-validation-for="LastName"></span>
+                            </div>
+                            <div class="row">
+                                <label asp-for="Email"></label>
+                                <input asp-for="Email" class="form-control" />
+                                <span asp-validation-for="Email"></span>
+                            </div>
+                            <div class="row">
+                                <label asp-for="City"></label>
+                                <input asp-for="City" class="form-control" />
+                                <span asp-validation-for="City"></span>
+                            </div>
+                            <div class="row">
+                                <label asp-for="AcceptTerms"></label><a href="#" data-toggle="modal" data-target="#myModal"><b> conditions.</b></a>
+                                <input asp-for="AcceptTerms" type="checkbox" class="checkbox" />
+                                <span asp-validation-for="AcceptTerms"></span>
+                            </div>
+                            <div class="row" style="padding-top:10px;">
+                                <button type="submit" class="btn btn-primary">
+                                    <span class="glyphicon glyphicon-export"></span> Lägg till
+                                </button>
+                            </div>
+                        </form>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
