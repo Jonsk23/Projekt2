@@ -1,4 +1,5 @@
 ﻿<!DOCTYPE html>
+
 <html>
 <head>
 
@@ -6,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="author" content="">'
 
     <title>@ViewBag.Title</title>
     <!-- jQuery -->
@@ -14,7 +15,6 @@
     <!-- Bootstrap Core JavaScript -->
     <script src="/scripts/bootstrap.js"></script>
     @RenderSection("script", false)
-
     <!-- Bootstrap Core CSS -->
     <link href="~/css/bootstrap.css" rel="stylesheet" />
     <link href="~/css/bootstrap.min.css" rel="stylesheet" />
@@ -32,6 +32,8 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+
 </head>
 <body>
 
@@ -50,34 +52,22 @@
                     <span class="icon-bar"></span>
                 </button>
                 <!-- navbar-brand is hidden on larger screens, but visible when the menu is collapsed -->
-                <a class="navbar-brand" href="/shared/_layout">Kontorsprylar AB</a>
+                <a class="navbar-brand" href="">Kontorsprylar AB</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li>      
-                        <a href="/shop/index" type ="button" data-toggle="dropdown">Hem <span class="glyphicon glyphicon-home"></span></a>
+                    <li>
+                        <a href="/admin/index">Hem <span class="glyphicon glyphicon-home"></span></a>
                     </li>
                     <li>
-                        <a href="/shop/products" type ="button" data-toggle="dropdown">Produkter <span class="glyphicon glyphicon-pencil"></span><span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="/shop/products" class="glyphicon glyphicon-file"> Papper & Block</a></li>
-                            <li><a href="/shop/products" class="glyphicon glyphicon-pencil"> Pennor & Ritmaterial</a></li>
-                            <li><a href="/shop/products" class="glyphicon glyphicon-folder-open"> Sortering & Förvaring</a></li>
-                            <li><a href="/shop/products" class="glyphicon glyphicon-envelope"> Kuvert Post & Emballage</a></li>
-                            <li><a href="/shop/products" class="glyphicon glyphicon-calendar"> Almanackor & Kalendrar</a></li>
-                            <li><a href="/shop/products" class="glyphicon glyphicon-scissors"> Skrivbordstillbehör</a></li>
-                            <li><a href="/shop/products" class="glyphicon glyphicon-blackboard"> Konferens & Presentation</a></li>
-                        </ul>  
+                        <a href="/admin/adduser">Lägg till kund <span class="glyphicon glyphicon-pencil"></span></a>
                     </li>
                     <li>
-                        <a href="/shop/contact" type ="button" data-toggle="dropdown">Kontakt <span class="glyphicon glyphicon-envelope"></span><span class="caret"></span></a>
+                        <a href="/admin/addproduct">Lägg till produkt <span class="glyphicon glyphicon-envelope"></span></a>
                     </li>
                     <li>
-                        <a href="/shop/kundvagn" type ="button" data-toggle="dropdown">Kundvagn <span class="glyphicon glyphicon-shopping-cart"></span><span class="caret"></span></a>
-                    </li>
-                    <li>
-                        <a href="/shop/index" type ="button" data-toggle="dropdown">Mitt konto <span class="glyphicon glyphicon-user"></span><span class="caret"></span></a>
+                        <a href="/admin/orderhistory">Spåra ordrar <span class="glyphicon glyphicon-shopping-cart"></span></a>
                     </li>
                 </ul>
             </div>
@@ -97,5 +87,6 @@
             </div>
         </div>
     </footer>
+
 </body>
 </html>
