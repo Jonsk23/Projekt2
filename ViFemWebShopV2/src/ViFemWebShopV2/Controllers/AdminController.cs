@@ -44,8 +44,8 @@ namespace ViFemWebShopV2.Controllers
 
             try
             {
-                DataManager dataManager = new DataManager(productContext);
-                dataManager.AddProduct(viewModel);
+            DataManager dataManager = new DataManager(productContext);
+            dataManager.AddProduct(viewModel);
             }
             catch (Exception)
             {
@@ -80,7 +80,7 @@ namespace ViFemWebShopV2.Controllers
                 return View(viewModel);
             }
             return RedirectToAction(nameof(AdminController.Index));
-
+            
         }
     }
 }
