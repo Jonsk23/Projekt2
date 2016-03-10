@@ -74,7 +74,11 @@ namespace ViFemWebShopV2.Controllers
                 return View(viewModel);
             }
             return RedirectToAction(nameof(AdminController.Index));
-            
+        }
+
+        public IActionResult Login()
+        {
+            return View();
         }
     }
 }
