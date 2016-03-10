@@ -13,13 +13,21 @@
                         <h1>Login</h1>
                     </caption>
                     <tr>
-                        <td  style="padding-bottom: 20px;"><label asp-for="UserName"></label></td>
-                        <td  style="padding-bottom: 20px;"><input asp-for="UserName" /></td>
-                        <td  style="padding-bottom: 20px;"><span asp-validation-for="UserName"></span></td>
+                        <td  style="padding-bottom: 5px;"><label asp-for="UserName"></label></td>
                     </tr>
                     <tr>
-                        <td style="padding-bottom: 20px;"><label asp-for="Password"></label></td>
+                        <td  style="padding-bottom: 20px;"><input asp-for="UserName"/></td>
+                    </tr>
+                    <tr>
+                        <td  style="padding-bottom: 10px;"><span asp-validation-for="UserName"></span></td>
+                    </tr>
+                    <tr>
+                        <td style="padding-bottom: 5px;"><label asp-for="Password"></label></td>
+                    </tr>
+                    <tr>
                         <td style="padding-bottom: 20px;"><input asp-for="Password" /></td>
+                    </tr>
+                    <tr>
                         <td style="padding-bottom: 20px;"><span asp-validation-for="Password"></span></td>
                     </tr>
                     <tr>
