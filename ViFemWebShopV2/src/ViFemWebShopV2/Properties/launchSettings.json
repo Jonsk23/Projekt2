@@ -11,7 +11,7 @@
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
-      "launchUrl": "admin/adduser",
+      "launchUrl": "shop/index",
       "environmentVariables": {
         "Key": "Value",
         "Hosting:Environment": "Development"
