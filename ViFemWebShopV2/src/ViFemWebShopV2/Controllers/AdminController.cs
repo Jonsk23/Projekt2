@@ -12,16 +12,10 @@ namespace ViFemWebShopV2.Controllers
 {
     public class AdminController : Controller
     {
-        UserAccountContext userAccountContext;
-        ProductContext productContext;
-
-        public AdminController(UserAccountContext context)
+        EshopContext context;
+        public AdminController(EshopContext context)
         {
-            userAccountContext = context;
-        }
-        public AdminController(ProductContext context)
-        {
-            productContext = context;
+            this.context = context;
         }
 
         public IActionResult Index()
@@ -44,7 +38,7 @@ namespace ViFemWebShopV2.Controllers
 
             try
             {
-            DataManager dataManager = new DataManager(productContext);
+            DataManager dataManager = new DataManager(context);
             dataManager.AddProduct(viewModel);
             }
             catch (Exception)
@@ -71,7 +65,7 @@ namespace ViFemWebShopV2.Controllers
 
             try
             {
-                DataManager dataManager = new DataManager(userAccountContext);
+                DataManager dataManager = new DataManager(context);
                 dataManager.AddUser(viewModel);
             }
             catch (Exception)
