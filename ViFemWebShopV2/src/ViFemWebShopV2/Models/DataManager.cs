@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using ViFemWebShopV2.ViewModels;
@@ -17,15 +18,41 @@ namespace ViFemWebShopV2.Models
 
         public void AddUser(AddUserVM viewModel)
         {
+            var BusinessAccount = 
+                context.BusinessAccounts.ToList().Find(o => o.RegistrationNumber == viewModel.CompanyNumber);
+
+            if(BusinessAccount == null)
+            {
+                Debug.WriteLine("Reg number not found");
+                //ADD ERROR /THROW EXCEPTION SOMEHOW?
+                return; 
+            }
+
+            var newAdress =
+                context.Addresses.Add(new Address
+                {
+                    City = viewModel.City,
+                    Street = viewModel.Street,
+                    ZipCode = viewModel.ZipCode
+                });
+
+            context.SaveChanges();
+
+            if (newAdress == null)
+            {
+                //?
+                return;
+            }
+
             context.UserAccounts.Add(new User
             {
-                //ClientID = viewModel.ClientID,
-                //BusinessAccount = viewModel.BusinessAccount,
+                AccountID = BusinessAccount.AccountId,
+                UserName = viewModel.UserName,
+                Password = viewModel.Password,
                 FirstName = viewModel.FirstName,
                 LastName = viewModel.LastName,
                 Email = viewModel.Email,
-                Password = viewModel.Password,
-                DeliveryAddress = new Address { Street = viewModel.Street, City = viewModel.City, ZipCode = viewModel.ZipCode }
+                DeliveryAddressID = newAdress.Entity.AddressID
             });
 
             context.SaveChanges();
