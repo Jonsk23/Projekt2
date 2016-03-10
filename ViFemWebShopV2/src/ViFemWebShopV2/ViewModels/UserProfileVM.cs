@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -9,5 +10,20 @@ namespace ViFemWebShopV2.ViewModels
     {
         // Här ska inloggade kunder se sin medlemsinfo
         // och även sin orderhistorik.
+
+            //Hämta informationen från kakan
+        
+
+        public string Email { get; set; }
+
+        public string FirstName { get; set; }
+
+        public string LastName { get; set; }
+
+        public string Street { get; set; }
+
+        public string City { get; set; }
+
+        public string ZipCode { get; set; }
     }
 }
