@@ -9,6 +9,15 @@
     Layout = "~/Views/Shared/_Layout";
 }
 
+<script>
+    $(document).ready(function()
+    {
+    $('.carousel').carousel({
+        interval: 5000 //changes the speed
+    })
+    });
+</script>
+
     <div class="container">
 
         <div class="row">
@@ -91,8 +100,4 @@
     </div>
 
     <!-- Script to Activate the Carousel -->
-<script>
-    $('.carousel').carousel({
-        interval: 5000 //changes the speed
-    })
-</script>
+
