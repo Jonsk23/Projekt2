@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Mvc;
 using ViFemWebShopV2.ViewModels;
 using ViFemWebShopV2.Models;
+using System.Diagnostics;
 
 namespace ViFemWebShopV2.Controllers
 {
@@ -39,9 +40,10 @@ namespace ViFemWebShopV2.Controllers
             DataManager dataManager = new DataManager(context);
             dataManager.AddProduct(viewModel);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 ModelState.AddModelError(string.Empty, "Vi har tyvärr inte plats i lagret för denna produkt. Gå till styrelsen och begär att bygga ut.");
+                Debug.WriteLine(ex.Message + " Inner: " + ex.InnerException.Message);
                 return View(viewModel);
             }
             return RedirectToAction(nameof(AdminController.Index));
@@ -66,9 +68,10 @@ namespace ViFemWebShopV2.Controllers
                 DataManager dataManager = new DataManager(context);
                 dataManager.AddUser(viewModel);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 ModelState.AddModelError(string.Empty, "You don't want your business.");
+                Debug.WriteLine(ex.Message + " Inner: " + ex.InnerException.Message);
                 return View(viewModel);
             }
             return RedirectToAction(nameof(AdminController.Index));
