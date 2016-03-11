@@ -18,14 +18,27 @@ namespace ViFemWebShopV2.Models
 
         public void AddUser(AddUserVM viewModel)
         {
+            if(context.UserAccounts.ToList().FindAll(o => o.UserName.ToUpper() == viewModel.UserName.ToUpper()).Count() > 0)
+            {
+                Debug.WriteLine("User already exists");
+                throw new Exception("Error, user " + viewModel.UserName + " already exists.");
+            }
+
             var BusinessAccount = 
                 context.BusinessAccounts.ToList().Find(o => o.RegistrationNumber == viewModel.CompanyNumber);
 
             if(BusinessAccount == null)
             {
+                // Throw exception / Error
                 Debug.WriteLine("Reg number not found");
-                //ADD ERROR /THROW EXCEPTION SOMEHOW?
                 return; 
+            }
+
+            if(BusinessAccount.Password != viewModel.CompanyPassword)
+            {
+                // Throw exception / Error
+                Debug.WriteLine("Incorrect password " + BusinessAccount.Password + " " + viewModel.Password);
+                return;
             }
 
             var newAdress =
@@ -60,15 +73,23 @@ namespace ViFemWebShopV2.Models
 
         public void AddProduct(AddProductVM viewModel)
         {
+            if (context.Products.ToList().FindAll(o => o.ProductName.ToUpper() == viewModel.Name.ToUpper()).Count() > 0)
+                throw new Exception("Error, this product name already exists");
+
+            var thisCategory = context.Categories.ToList().Find(o => o.CategoryName.ToUpper() == viewModel.Category.ToUpper());
+
+            if (thisCategory == null)
+                throw new Exception("Error, category " + viewModel.Category + " does not exist");
+
             context.Products.Add(new Product
             {
-                Name = viewModel.Name,
-                //ProductID = viewModel.ProductID,
+                ProductName = viewModel.Name,
                 Price = viewModel.Price,
                 Description = viewModel.Description,
                 ItemsInStock = viewModel.ItemsInStock,
-                Category = viewModel.Category
+                CategoryID = thisCategory.CategoryID,
             });
+
             context.SaveChanges();
         }
     }
