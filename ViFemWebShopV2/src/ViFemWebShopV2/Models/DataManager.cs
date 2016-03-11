@@ -104,14 +104,14 @@ namespace ViFemWebShopV2.Models
         static List<User> fakelist = new List<User>();
         static DataManager()
         {
-            fakelist.Add(new User { UserName = "jens", Password = "p" });
+            fakelist.Add(new User { UserName = "jens", Password = "p", FirstName = "Jensa", LastName = "Jensson", Email = "jensa@jens.com" });
 
         }
         public User Login(LoginVM viewModel)
         {
             try
             {
-                return fakelist.Where(o => o.UserName == viewModel.UserName && o.Password == viewModel.Password).Single();
+                return context.UserAccounts.Where(o => o.UserName == viewModel.UserName && o.Password == viewModel.Password).Single();
             }
             catch (Exception e)
             {
@@ -120,19 +120,28 @@ namespace ViFemWebShopV2.Models
             }
         }
 
-        public void MyProfile(UserProfileVM viewModel)
+        public UserProfileVM MyProfile(string username)
         {
-            var user = context.UserAccounts.Where(u => u.UserName == viewModel.addUser.UserName).Single();
+            var userProfileVM = new UserProfileVM();
+            var user = context.UserAccounts.Where(u => u.UserName == username).Single();
             var address = context.Addresses.Where(a => a.AddressID == user.DeliveryAddressID).Single();
-            //var orders = context.Orders.Where(o => o.ClientId == user.ClientID).ToList();
+            var orders = context.Orders.Where(o => o.ClientId == user.ClientID).ToList();
+            var orderVms = new List<OrderVM>();
+            foreach (var item in orders)
+            {
+                orderVms.Add(new OrderVM { Ordernumber = item.OrderId, OrderDate = item.CreatedDate.ToString("yyyyMMdd"), Status = item.Status });
+            }
+            var addUser = new AddUserVM { FirstName = user.FirstName, LastName = user.LastName, Email = user.Email, City = address.City,
+                Street = address.Street, ZipCode = address.ZipCode, UserName = user.UserName };
 
-            viewModel.addUser.FirstName = user.FirstName;
-            viewModel.addUser.LastName = user.LastName;
-            viewModel.addUser.Email = user.Email;
-            viewModel.addUser.Street = address.Street;
-            viewModel.addUser.City = address.City;
-            viewModel.addUser.ZipCode = address.ZipCode;
+            userProfileVM.addUser = addUser;
 
+            userProfileVM.orders = orderVms.ToArray();
+            //userProfileVM.addUser.Street = address.Street;
+            //userProfileVM.addUser.City = address.City;
+            //userProfileVM.addUser.ZipCode = address.ZipCode;
+
+            return userProfileVM;
             //viewModel.orderHistory = 
 
         }

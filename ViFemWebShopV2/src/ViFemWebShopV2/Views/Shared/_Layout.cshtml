@@ -95,8 +95,17 @@
                     <li>
                         <a href="/shop/index" type ="button" data-toggle="dropdown">Mitt konto <span class="glyphicon glyphicon-user"></span><span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="/shop/registerascustomer" class="glyphicon glyphicon-edit"> Registrera konto</a></li>
-                            <li><a href="/admin/login" class="glyphicon glyphicon-log-in"> Logga in</a></li>
+                            @if (Context.Request.Cookies["username"].Count() > 0)
+                            {
+                                <li><a href="/shop/profiles" class="glyphicon glyphicon-edit"> Min Profil</a></li>
+                                <li><a href="/admin/logout" class="glyphicon glyphicon-log-in"> Logga ut</a></li>
+                            }
+                            else
+                            {
+                                <li><a href="/shop/index" class="glyphicon glyphicon-edit"> Registrera konto</a></li>
+                                <li><a href="/admin/login" class="glyphicon glyphicon-log-in"> Logga in</a></li>
+
+                            }
                         </ul>  
                     </li>
                 </ul>

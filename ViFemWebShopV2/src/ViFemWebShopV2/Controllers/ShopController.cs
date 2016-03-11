@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Mvc;
 using ViFemWebShopV2.Models;
+using ViFemWebShopV2.ViewModels;
 
 namespace ViFemWebShopV2.Controllers
 {
@@ -50,7 +51,19 @@ namespace ViFemWebShopV2.Controllers
 
         public IActionResult Profiles()
         {
-            return View();
+            DataManager dm = new DataManager(context);
+            UserProfileVM vm = null;
+            if (Request.Cookies["username"].Count() > 0)
+                vm = dm.MyProfile(Request.Cookies["username"].ToString());
+            return View(vm);
+        }
+
+
+        public IActionResult Tempproducts()
+        {
+            DataManager dataManager = new DataManager(context);
+            var viewModel = dataManager.ListProducts();
+            return View(viewModel);
         }
     }
 }

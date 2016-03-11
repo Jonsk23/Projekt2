@@ -29,6 +29,6 @@ namespace ViFemWebShopV2.ViewModels
         //public string ZipCode { get; set; }
 
         public AddUserVM addUser { get; set; }
-        public OrderHistoryVM[] orderHistory { get; set; }
+        public OrderVM[] orders { get; set; }
     }
 }
