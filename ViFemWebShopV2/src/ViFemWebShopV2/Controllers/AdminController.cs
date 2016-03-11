@@ -6,6 +6,7 @@ using Microsoft.AspNet.Mvc;
 using ViFemWebShopV2.ViewModels;
 using ViFemWebShopV2.Models;
 using System.Diagnostics;
+using Microsoft.AspNet.Http;
 
 namespace ViFemWebShopV2.Controllers
 {
@@ -89,10 +90,16 @@ namespace ViFemWebShopV2.Controllers
                 return View(viewModel);
 
             //DataManager dm = new DataManager(context);
-            //if(dm.Login(viewModel))
+            //if (dm.Login(viewModel))
+            Response.Cookies.Append("userid", "1");
+            //else
+            //  return View(errormessage);
+            //CookieOptions cookieOptions = new CookieOptions();
+            //cookieOptions.Expires.
             //  return RedirectToAction(nameof(ShopController.Index));
             //var coockie = HttpContext.Session.
-            return RedirectToAction(nameof(AdminController.Index));
+            //var cookie = Request.Cookies["userid"].Count() > 0;
+            return RedirectToAction(nameof(ShopController.Index));
         }
     }
 }
