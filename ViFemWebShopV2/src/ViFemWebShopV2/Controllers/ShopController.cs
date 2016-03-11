@@ -33,7 +33,6 @@ namespace ViFemWebShopV2.Controllers
             return View();
         }
 
-
         public IActionResult Checkout()
         {
             return View();
@@ -52,12 +51,6 @@ namespace ViFemWebShopV2.Controllers
         public IActionResult Profiles()
         {
             return View();
-        }
-        public IActionResult Tempproducts()
-        {
-            DataManager dataManager = new DataManager(context);
-            var viewModel = dataManager.ListProducts();
-            return View(viewModel);
         }
     }
 }
