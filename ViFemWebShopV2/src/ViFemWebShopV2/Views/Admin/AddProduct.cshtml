@@ -2,17 +2,19 @@
 @model AddProductVM
 @addTagHelper "*,Microsoft.AspNet.Mvc.TagHelpers"
 
-@{ 
-    Layout = "/Views/Shared/_LayoutAdmin";
+@{
     ViewBag.Title = "Add Product";
+    Layout = "~/Views/Shared/_LayoutAdmin";
+
 }
+
 
 <div class="row">
     <div class="box">
         <div class="col-lg-12">
             <hr>
             <h2 class="intro-text text-center">
-                Enter information about
+                Enter the information about
                 <strong>the product</strong>
             </h2>
             @*<div asp-validation-summary="ValidationSummary.All"></div>*@
@@ -20,43 +22,55 @@
                 <table align="center">
                     <form asp-controller="Admin" asp-action="AddProduct">
                         <tr>
-                            <td><label asp-for="Name"></label></td>
+                            <td>
+                                <label asp-for="Name"></label>
+                            </td>
                             <td>
                                 <input asp-for="Name" />
                                 <span asp-validation-for="Name"></span>
                             </td>
                         </tr>
                         <tr>
-                            <td><label asp-for="ItemsInStock"></label></td>
+                            <td>
+                                <label asp-for="ItemsInStock"></label>
+                            </td>
                             <td>
                                 <input asp-for="ItemsInStock" />
                                 <span asp-validation-for="ItemsInStock"></span>
                             </td>
                         </tr>
                         <tr>
-                            <td><label asp-for="Password"></label></td>
                             <td>
-                                <input asp-for="Password" />
-                                <span asp-validation-for="Password"></span>
+                                <label asp-for="Price"></label>
+                            </td>
+                            <td>
+                                <input asp-for="Price" />
+                                <span asp-validation-for="Price"></span>
                             </td>
                         </tr>
                         <tr>
-                            <td><label asp-for="Description"></label></td>
+                            <td>
+                                <label asp-for="Description"></label>
+                            </td>
                             <td>
                                 <input asp-for="Description" />
                                 <span asp-validation-for="Description"></span>
                             </td>
                         </tr>
                         <tr>
-                            <td><label asp-for="Category"></label></td>
                             <td>
-                                <input asp-for="Category"/>
+                                <label asp-for="Category"></label>
+                            </td>
+                            <td>
+                                <input asp-for="Category" />
                                 <span asp-validation-for="Category"></span>
                             </td>
                         </tr>
                         <tr>
                             <td></td>
-                            <td><input type="submit" value="Add new product" /></td>
+                            <td>
+                                <input type="submit" value="Add new product" />
+                            </td>
                         </tr>
                     </form>
                 </table>
@@ -68,4 +82,3 @@
     <script src="~/scripts/jquery.validate.js"></script>
     <script src="~/scripts/jquery.validate.unobtrusive.js"></script>
 }
-
