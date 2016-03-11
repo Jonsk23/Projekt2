@@ -11,7 +11,7 @@ namespace ViFemWebShopV2.Models
         [Key]
         public int OrderId { get; set; }
         public int ClientId { get; set; }
-        public DateTime Created { get; set; }
+        public DateTime CreatedDate { get; set; }
         public string Status { get; set; }
     }
 }

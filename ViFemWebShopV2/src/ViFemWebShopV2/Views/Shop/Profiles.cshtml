@@ -41,10 +41,24 @@
                 <hr>
             </div>
             <div>
-                <p>Här presenteras kundens ordrar</p>
-                <p>Bla</p>
-                <p>Bla</p>
-                <p>Bla</p>
+                <table>
+                    <caption><strong>Lagda ordrar</strong></caption>
+                    <tr>
+                        <th>Ordernummer</th>
+                        <th>Orderdatum</th>
+                        <th>Status</th>
+                    </tr>
+                    @foreach (var item in Model.orders)
+                    {
+                        <tr>
+                            <td>@item.Ordernumber</td>
+                            <td>@item.OrderDate</td>
+                            <td>@item.Status</td>
+                        </tr>
+                    }
+
+
+                </table>
             </div>
             <div class="clearfix"></div>
         </div>

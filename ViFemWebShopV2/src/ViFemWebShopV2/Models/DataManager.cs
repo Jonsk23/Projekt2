@@ -123,11 +123,20 @@ namespace ViFemWebShopV2.Models
         public UserProfileVM MyProfile(string username)
         {
             var userProfileVM = new UserProfileVM();
-            var user = fakelist.Where(u => u.UserName == username).Single();
-            //var address = context.Addresses.Where(a => a.AddressID == user.DeliveryAddressID).Single();
-            //var orders = context.Orders.Where(o => o.ClientId == user.ClientID).ToList();
-            var addUser = new AddUserVM { FirstName = user.FirstName, LastName = user.LastName, Email = user.Email, City = "Sanfran", Street ="Main st", ZipCode = "12345", UserName = user.UserName };
+            var user = context.UserAccounts.Where(u => u.UserName == username).Single();
+            var address = context.Addresses.Where(a => a.AddressID == user.DeliveryAddressID).Single();
+            var orders = context.Orders.Where(o => o.ClientId == user.ClientID).ToList();
+            var orderVms = new List<OrderVM>();
+            foreach (var item in orders)
+            {
+                orderVms.Add(new OrderVM { Ordernumber = item.OrderId, OrderDate = item.CreatedDate.ToString("yyyyMMdd"), Status = item.Status });
+            }
+            var addUser = new AddUserVM { FirstName = user.FirstName, LastName = user.LastName, Email = user.Email, City = address.City,
+                Street = address.Street, ZipCode = address.ZipCode, UserName = user.UserName };
+
             userProfileVM.addUser = addUser;
+
+            userProfileVM.orders = orderVms.ToArray();
             //userProfileVM.addUser.Street = address.Street;
             //userProfileVM.addUser.City = address.City;
             //userProfileVM.addUser.ZipCode = address.ZipCode;

@@ -20,13 +20,21 @@
                 <hr>
             </div>
             <div class="col-md-6">
-                <img class="img-responsive img-border-left" src="~/img/slide-2.jpg" alt="">
+                <img class="img-responsive img-border-left" src="https://images.unsplash.com/photo-1432821596592-e2c18b78144f?crop=entropy&fit=crop&fm=jpg&h=1000&ixjsv=2.1.0&ixlib=rb-0.3.5&q=80&w=1925" alt="">
             </div>
             <div class="col-md-6">
-                <p>Blablabla.</p> </div>
+                            <h2 class="intro-text text-center">
+                                <strong>Lite finare kontorsprodukter,<br />
+                               för lite finare kontor
+                                </strong>
+                            </h2>
+                            <p>Vi tror att kontorsmaterial "is a way of life", och på samma sätt kommer ditt val av kontorsprodukter att spegla dina val i livet.</p>
+                            <p>Satsa på högkvalitativa produkter och vi garanterar att du kommer framstå en framgångsrik företagare!</p>
+                            <p>It's true what they say; Fake it 'til you make it!</p>
+                        </div>
+                    </div>
             <div class="clearfix"></div>
         </div>
-    </div>
 
     <div class="row">
         <div class="box">
@@ -39,36 +47,36 @@
                 </h2>
                 <hr>
             </div>
+
+            @*Här loopas de utplockade produkterna upp*@
             @foreach (var item in Model)
             {
-                @*En produkt som ska loopar för varje produkt*@
+                
                 <div class="col-sm-4 col-lg-4 col-md-4">
                     <div class="thumbnail">
-                        <img src="@item.ImageURL" alt="">
+
+                            <img src="@item.ImageURL" style="max-height:150px; max-width:320px;">
+
+                        
                         <div class="caption">
                             <h4 class="pull-right">@item.Price</h4>
                             <h4>
                                 <a href="#">@item.Name</a>
                             </h4>
-                            <p>@item.Description</p>
+                            <p><small>@item.Description</small></p>
                         </div>
                         <div class="addtocart">
-                            <p class="pull-right"><a href="#">Lägg i kundvagn</a></p>
-                            <p>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                            </p>
+                            <a href="#" class="btn btn-default btn-group-sm pull-right">Lägg i kundvagnen</a>
                         </div>
+                        <br />
+                        <br />
                     </div>
                 </div>
             }
         </div>
     </div>
-
 </div>
+
 <!-- /.container -->
 
 @section script{
