@@ -16,16 +16,19 @@ namespace ViFemWebShopV2.ViewModels
         //Kan en lista hämtas och i så fall hur många proppar kommer behövas?
 
 
-        public string Email { get; set; }
+        //public string Email { get; set; }
 
-        public string FirstName { get; set; }
+        //public string FirstName { get; set; }
 
-        public string LastName { get; set; }
+        //public string LastName { get; set; }
 
-        public string Street { get; set; }
+        //public string Street { get; set; }
 
-        public string City { get; set; }
+        //public string City { get; set; }
 
-        public string ZipCode { get; set; }
+        //public string ZipCode { get; set; }
+
+        public AddUserVM addUser { get; set; }
+        public OrderHistoryVM[] orderHistory { get; set; }
     }
 }
