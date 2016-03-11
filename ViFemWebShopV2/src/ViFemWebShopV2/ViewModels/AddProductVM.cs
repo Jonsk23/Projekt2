@@ -17,7 +17,7 @@ namespace ViFemWebShopV2.ViewModels
         public int Stock { get; set; }
 
         [Required(ErrorMessage = "The product must have a price")]
-        public int Price { get; set; }
+        public double Price { get; set; }
 
         [Required(ErrorMessage = "Description is required")]
         public string Description { get; set; }
