@@ -40,7 +40,7 @@ namespace ViFemWebShopV2.Models
                 throw new Exception("ERROR Company Password is invalid");
 
             if (context.UserAccounts.ToList().FindAll(o => o.UserName == viewModel.UserName).Count() > 0)
-                throw new Exception("ERROR Username already eists in database");
+                throw new Exception("ERROR Username already exists in database");
 
 
             var newAdress =

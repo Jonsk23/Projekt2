@@ -15,6 +15,7 @@ namespace ViFemWebShopV2.ViewModels
         public string Category { get; set; }
 
         [Display(Description = "Pris: ")]
+        [DisplayFormat(DataFormatString = "{0:C0}")]
         public double Price { get; set; }
 
         [Display(Description = "Beskrivning: ")]
