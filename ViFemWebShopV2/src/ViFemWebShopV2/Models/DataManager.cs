@@ -74,8 +74,8 @@ namespace ViFemWebShopV2.Models
 
         public void AddProduct(AddProductVM viewModel)
         {
-            if (context.Products.ToList().FindAll(o => o.ProductName.ToUpper() == viewModel.Name.ToUpper()).Count() > 0)
-                throw new Exception("Error, this product name already exists");
+            if (context.Products.ToList().Find(o => o.ProductName.ToUpper() == viewModel.Name.ToUpper()) != null)
+                throw new Exception("Error, the product name " + viewModel.Name + " already exists");
 
             var thisCategory = context.Categories.ToList().Find(o => o.CategoryName.ToUpper() == viewModel.Category.ToUpper());
 
@@ -89,9 +89,26 @@ namespace ViFemWebShopV2.Models
                 Description = viewModel.Description,
                 Stock = viewModel.Stock,
                 CategoryID = thisCategory.CategoryID,
+                ImageURL = viewModel.ImageURL,
+                IsActive = true
             });
 
             context.SaveChanges();
         }
+
+        //public void AddOrder(AddOrderVM viewModel)
+        //{
+
+
+        //    context.Orders.Add(new Order
+        //    {
+
+
+
+        //    });
+
+
+
+        //}
     }
 }
