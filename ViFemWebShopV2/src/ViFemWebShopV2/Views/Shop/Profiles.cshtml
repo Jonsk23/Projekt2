@@ -16,15 +16,16 @@
                 <h2 class="intro-text text-center">
                     Välkommen
 
-                    <strong>kära kund</strong>
+                    <strong>@Model.addUser.FirstName @Model.addUser.LastName</strong>
                 </h2>
                 <hr>
             </div>
             <div>
                 <p>Här presenteras kundens information</p>
-                <p>Bla</p>
-                <p>Bla</p>
-                <p>Bla</p>
+                <p>@Model.addUser.UserName</p>
+                <p>@Model.addUser.Street</p>
+                <p>@Model.addUser.ZipCode @Model.addUser.City</p>
+                <p>@Model.addUser.Email</p>
             </div>
             <div class="clearfix"></div>
         </div>
