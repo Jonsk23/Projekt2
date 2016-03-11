@@ -23,9 +23,16 @@ namespace ViFemWebShopV2.Models
 
             if(BusinessAccount == null)
             {
+                // Throw exception / Error
                 Debug.WriteLine("Reg number not found");
-                //ADD ERROR /THROW EXCEPTION SOMEHOW?
                 return; 
+            }
+
+            if(BusinessAccount.Password != viewModel.Password)
+            {
+                // Throw exception / Error
+                Debug.WriteLine("Incorrect password");
+                return;
             }
 
             var newAdress =
