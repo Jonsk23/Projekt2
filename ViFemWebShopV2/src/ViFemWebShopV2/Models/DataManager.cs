@@ -58,7 +58,7 @@ namespace ViFemWebShopV2.Models
                 ProductName = viewModel.Name,
                 Price = viewModel.Price,
                 Description = viewModel.Description,
-                ItemsInStock = viewModel.ItemsInStock,
+                Stock = viewModel.Stock,
                 CategoryID = thisCategory.CategoryID,
             });
 
