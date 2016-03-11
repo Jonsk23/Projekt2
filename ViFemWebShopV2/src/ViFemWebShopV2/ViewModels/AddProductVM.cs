@@ -13,17 +13,21 @@ namespace ViFemWebShopV2.ViewModels
         public string Name { get; set; }
 
         [Required(ErrorMessage = "Quantity is required")]
-        [Display(Name = "Quantity")]
-        public int ItemsInStock { get; set; }
+        [Display(Name = "Quantity in stock")]
+        public int Stock { get; set; }
 
         [Required(ErrorMessage = "The product must have a price")]
-        public int Price { get; set; }
+        public double Price { get; set; }
 
         [Required(ErrorMessage = "Description is required")]
         public string Description { get; set; }
 
         [Required(ErrorMessage = "Category is required")]
         public string Category { get; set; }
+
+        [Display(Name = "URL to image")]
+        public string ImageURL { get; set; }
+
         //public bool IsActive { get; set; }
     }
 }

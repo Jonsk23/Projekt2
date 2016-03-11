@@ -7,5 +7,6 @@ namespace ViFemWebShopV2.ViewModels
 {
     public class CheckoutVM
     {
+
     }
 }

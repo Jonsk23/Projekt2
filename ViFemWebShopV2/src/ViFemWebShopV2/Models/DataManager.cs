@@ -16,31 +16,35 @@ namespace ViFemWebShopV2.Models
             this.context = context;
         }
 
+        public ListProductVM[] ListProducts()
+        {
+            return context.Products
+                .Select(p => new ListProductVM
+                {
+                    Name = p.ProductName,
+                    Category = context.Categories.ToList().Find(o=>o.CategoryID== p.CategoryID).CategoryName,
+                    Description = p.Description,
+                    Price = p.Price
+                }).ToArray();
+        }
+
         public void AddUser(AddUserVM viewModel)
         {
-            if(context.UserAccounts.ToList().FindAll(o => o.UserName.ToUpper() == viewModel.UserName.ToUpper()).Count() > 0)
-            {
-                Debug.WriteLine("User already exists");
-                throw new Exception("Error, user " + viewModel.UserName + " already exists.");
-            }
-
             var BusinessAccount = 
                 context.BusinessAccounts.ToList().Find(o => o.RegistrationNumber == viewModel.CompanyNumber);
 
+            ///Make sure the business account exists and password is correct
             if(BusinessAccount == null)
-            {
-                // Throw exception / Error
-                Debug.WriteLine("Reg number not found");
-                return; 
-            }
+                throw new Exception("ERROR This company number is not in the database");
 
-            if(BusinessAccount.Password != viewModel.CompanyPassword)
-            {
-                // Throw exception / Error
-                Debug.WriteLine("Incorrect password " + BusinessAccount.Password + " " + viewModel.Password);
-                return;
-            }
+            if (BusinessAccount.Password != viewModel.Password)
+                throw new Exception("ERROR Company Password is invalid");
 
+            //Username needs to be unique in database
+            if (context.UserAccounts.ToList().FindAll(o => o.UserName == viewModel.UserName).Count() > 0)
+                throw new Exception("ERROR Username already exists in database");
+
+            //Add an adress record for this user
             var newAdress =
                 context.Addresses.Add(new Address
                 {
@@ -52,10 +56,9 @@ namespace ViFemWebShopV2.Models
             context.SaveChanges();
 
             if (newAdress == null)
-            {
-                //?
-                return;
-            }
+                throw new Exception("Error generating adress");
+            else if (newAdress.Entity.AddressID < 0)
+                throw new Exception("Error, address entity returned ID -1");
 
             context.UserAccounts.Add(new User
             {
@@ -73,8 +76,8 @@ namespace ViFemWebShopV2.Models
 
         public void AddProduct(AddProductVM viewModel)
         {
-            if (context.Products.ToList().FindAll(o => o.ProductName.ToUpper() == viewModel.Name.ToUpper()).Count() > 0)
-                throw new Exception("Error, this product name already exists");
+            if (context.Products.ToList().Find(o => o.ProductName.ToUpper() == viewModel.Name.ToUpper()) != null)
+                throw new Exception("Error, the product name " + viewModel.Name + " already exists");
 
             var thisCategory = context.Categories.ToList().Find(o => o.CategoryName.ToUpper() == viewModel.Category.ToUpper());
 
@@ -86,8 +89,10 @@ namespace ViFemWebShopV2.Models
                 ProductName = viewModel.Name,
                 Price = viewModel.Price,
                 Description = viewModel.Description,
-                ItemsInStock = viewModel.ItemsInStock,
+                Stock = viewModel.Stock,
                 CategoryID = thisCategory.CategoryID,
+                ImageURL = viewModel.ImageURL,
+                IsActive = true
             });
 
             context.SaveChanges();
