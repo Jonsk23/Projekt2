@@ -17,7 +17,7 @@ namespace ViFemWebShopV2.Models
         }
 
         public ListProductVM[] ListProducts()
-        {
+        { 
             return context.Products
                 .Select(p => new ListProductVM
                 {
@@ -106,7 +106,24 @@ namespace ViFemWebShopV2.Models
         {
             fakelist.Add(new User { UserName = "jens", Password = "p" });
 
+        public void MyProfile(UserProfileVM viewModel)
+        {
+            var user = context.UserAccounts.Where(u => u.UserName == viewModel.addUser.UserName).Single();
+            var address = context.Addresses.Where(a => a.AddressID == user.DeliveryAddressID).Single();
+            //var orders = context.Orders.Where(o => o.ClientId == user.ClientID).ToList();
+
+            viewModel.addUser.FirstName = user.FirstName;
+            viewModel.addUser.LastName = user.LastName;
+            viewModel.addUser.Email = user.Email;
+            viewModel.addUser.Street = address.Street;
+            viewModel.addUser.City = address.City;
+            viewModel.addUser.ZipCode = address.ZipCode;
+
+            //viewModel.orderHistory = 
+
         }
+
+    }
         public User Login(LoginVM viewModel)
         {
             try
