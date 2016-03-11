@@ -14,7 +14,7 @@ namespace ViFemWebShopV2.Models
         public DbSet<Address> Addresses { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderDetail> OrderDetails { get; set; }
-        public DbSet<Categories> Categories { get; set; }
+        public DbSet<Category> Categories { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -24,7 +24,7 @@ namespace ViFemWebShopV2.Models
             modelBuilder.Entity<Address>().ToTable("Addresses");
             modelBuilder.Entity<Order>().ToTable("Orders");
             modelBuilder.Entity<OrderDetail>().ToTable("OrderDetails");
-            modelBuilder.Entity<Categories>().ToTable("Categories");
+            modelBuilder.Entity<Category>().ToTable("Categories");
 
         }
     }
