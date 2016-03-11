@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ViFemWebShopV2.ViewModels
 {
-    public class ListProductsVM
+    public class ListProductVM
     {
         [Display(Description = "Produktnamn: ")]
         public string Name { get; set; }

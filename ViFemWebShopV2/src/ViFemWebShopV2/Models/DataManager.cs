@@ -16,6 +16,18 @@ namespace ViFemWebShopV2.Models
             this.context = context;
         }
 
+        public ListProductVM[] ListProducts()
+        {
+            return context.Products
+                .Select(p => new ListProductVM
+                {
+                    Name = p.ProductName,
+                    Category = p.CategoryID,
+                    Description = p.Description,
+                    Price = p.Price
+                }).ToArray();
+        }
+
         public void AddUser(AddUserVM viewModel)
         {
             var BusinessAccount = 
