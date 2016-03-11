@@ -8,17 +8,19 @@ namespace ViFemWebShopV2.ViewModels
 {
     public class ListProductVM
     {
-        [Display(Description = "Produktnamn: ")]
+        //[Display(Description = "Produktnamn: ")]
         public string Name { get; set; }
 
-        [Display(Description = "Produktkategori: ")]
-        public string Category { get; set; }
-
-        [Display(Description = "Pris: ")]
+        //[Display(Description = "Produktkategori: ")]
+        // public string Category { get; set; }
+        public string ImageURL { get; set; }
+        //[Display(Description = "Pris: ")]
         [DisplayFormat(DataFormatString = "{0:C0}")]
         public double Price { get; set; }
 
-        [Display(Description = "Beskrivning: ")]
+        //[Display(Description = "Beskrivning: ")]
         public string Description { get; set; }
+
+
     }
 }
