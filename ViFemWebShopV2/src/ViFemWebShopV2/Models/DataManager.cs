@@ -18,43 +18,15 @@ namespace ViFemWebShopV2.Models
 
         public void AddUser(AddUserVM viewModel)
         {
-            if(context.UserAccounts.ToList().FindAll(o => o.UserName.ToUpper() == viewModel.UserName.ToUpper()).Count() > 0)
-            {
-                Debug.WriteLine("User already exists");
-                throw new Exception("Error, user " + viewModel.UserName + " already exists.");
-            }
-
             var BusinessAccount = 
                 context.BusinessAccounts.ToList().Find(o => o.RegistrationNumber == viewModel.CompanyNumber);
 
             if(BusinessAccount == null)
             {
-                // Throw exception / Error
                 Debug.WriteLine("Reg number not found");
+                //ADD ERROR /THROW EXCEPTION SOMEHOW?
+
                 return; 
-            }
-
-            if(BusinessAccount.Password != viewModel.CompanyPassword)
-            {
-                // Throw exception / Error
-                Debug.WriteLine("Incorrect password " + BusinessAccount.Password + " " + viewModel.Password);
-                return;
-            }
-
-            var newAdress =
-                context.Addresses.Add(new Address
-                {
-                    City = viewModel.City,
-                    Street = viewModel.Street,
-                    ZipCode = viewModel.ZipCode
-                });
-
-            context.SaveChanges();
-
-            if (newAdress == null)
-            {
-                //?
-                return;
             }
 
             context.UserAccounts.Add(new User
@@ -65,7 +37,7 @@ namespace ViFemWebShopV2.Models
                 FirstName = viewModel.FirstName,
                 LastName = viewModel.LastName,
                 Email = viewModel.Email,
-                DeliveryAddressID = newAdress.Entity.AddressID
+                DeliveryAddressID = 3
             });
 
             context.SaveChanges();
