@@ -22,12 +22,13 @@ namespace ViFemWebShopV2.Models
                 context.BusinessAccounts.ToList().Find(o => o.RegistrationNumber == viewModel.CompanyNumber);
 
             if(BusinessAccount == null)
-            {
-                Debug.WriteLine("Reg number not found");
-                //ADD ERROR /THROW EXCEPTION SOMEHOW?
+                throw new Exception("ERROR This company number is not in the database");
 
-                return; 
-            }
+            if (BusinessAccount.Password != viewModel.Password)
+                throw new Exception("ERROR Company Password is invalid");
+
+            if (context.UserAccounts.ToList().FindAll(o => o.UserName == viewModel.UserName).Count() > 0)
+                throw new Exception("ERROR Username already eists in database");
 
             context.UserAccounts.Add(new User
             {
