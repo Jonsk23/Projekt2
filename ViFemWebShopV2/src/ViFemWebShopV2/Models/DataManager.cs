@@ -17,14 +17,14 @@ namespace ViFemWebShopV2.Models
         }
 
         public ListProductVM[] ListProducts()
-        { 
+        {
             return context.Products
                 .Select(p => new ListProductVM
                 {
                     Name = p.ProductName,
                     //Category = context.Categories.ToList().Find(o=>o.CategoryID == p.CategoryID).CategoryName,
                     Description = p.Description,
-                    ImageURL=p.ImageURL,
+                    ImageURL = p.ImageURL,
                     Price = p.Price
                 }).ToArray();
         }
@@ -32,11 +32,11 @@ namespace ViFemWebShopV2.Models
 
         public void AddUser(AddUserVM viewModel)
         {
-            var BusinessAccount = 
+            var BusinessAccount =
                 context.BusinessAccounts.ToList().Find(o => o.RegistrationNumber == viewModel.CompanyNumber);
 
             ///Make sure the business account exists and password is correct
-            if(BusinessAccount == null)
+            if (BusinessAccount == null)
                 throw new Exception("ERROR This company number (" + viewModel.CompanyNumber + ") is not in the database");
 
             if (BusinessAccount.Password != viewModel.CompanyPassword)
@@ -106,6 +106,20 @@ namespace ViFemWebShopV2.Models
         {
             fakelist.Add(new User { UserName = "jens", Password = "p" });
 
+        }
+        public User Login(LoginVM viewModel)
+        {
+            try
+            {
+                return fakelist.Where(o => o.UserName == viewModel.UserName && o.Password == viewModel.Password).Single();
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e.Message);
+                return null;
+            }
+        }
+
         public void MyProfile(UserProfileVM viewModel)
         {
             var user = context.UserAccounts.Where(u => u.UserName == viewModel.addUser.UserName).Single();
@@ -121,20 +135,6 @@ namespace ViFemWebShopV2.Models
 
             //viewModel.orderHistory = 
 
-        }
-
-    }
-        public User Login(LoginVM viewModel)
-        {
-            try
-            {
-                return fakelist.Where(o => o.UserName == viewModel.UserName && o.Password == viewModel.Password).Single();
-            }
-            catch (Exception e)
-            {
-                Debug.WriteLine(e.Message);
-                return null;
-            }
         }
     }
 }
