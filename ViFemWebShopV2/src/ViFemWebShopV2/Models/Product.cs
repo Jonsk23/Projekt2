@@ -9,7 +9,7 @@ namespace ViFemWebShopV2.Models
     public class Product
     {
         [Key]
-        public string ProductID { get; set; }
+        public int ProductID { get; set; }
         public int CategoryID { get; set; }
         public string ProductName { get; set; }
         public int Stock { get; set; }
@@ -17,6 +17,5 @@ namespace ViFemWebShopV2.Models
         public string Description { get; set; }
         public bool IsActive { get; set; }
         public string ImageURL { get; set; }
-
     }
 }
