@@ -26,9 +26,8 @@ namespace ViFemWebShopV2.Controllers
             return View();
         }
 
-        public IActionResult Products(string category)
+        public IActionResult ProductCategory(string category)
         {
-
             return View();
         }
 
