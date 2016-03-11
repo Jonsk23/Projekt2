@@ -12,7 +12,7 @@ using Microsoft.AspNet.Mvc.Rendering;
 namespace ViFemWebShopV2.Controllers
 {
     public class AdminController : Controller
-    {
+    { 
         EshopContext context;
         public AdminController(EshopContext context)
         {
