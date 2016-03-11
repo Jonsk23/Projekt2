@@ -87,6 +87,11 @@ namespace ViFemWebShopV2.Controllers
         {
             if (!ModelState.IsValid)
                 return View(viewModel);
+
+            //DataManager dm = new DataManager(context);
+            //if(dm.Login(viewModel))
+            //  return RedirectToAction(nameof(ShopController.Index));
+            //var coockie = HttpContext.Session.
             return RedirectToAction(nameof(AdminController.Index));
         }
     }
