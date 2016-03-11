@@ -44,7 +44,7 @@ namespace ViFemWebShopV2.Models
             if (context.UserAccounts.ToList().FindAll(o => o.UserName == viewModel.UserName).Count() > 0)
                 throw new Exception("ERROR Username already exists in database");
 
-            //Add an adress record for this user
+            //Add an address record for this user
             var newAdress =
                 context.Addresses.Add(new Address
                 {
@@ -55,11 +55,13 @@ namespace ViFemWebShopV2.Models
 
             context.SaveChanges();
 
+            //User needs a valid address to create an account
             if (newAdress == null)
                 throw new Exception("Error generating adress");
             else if (newAdress.Entity.AddressID < 0)
                 throw new Exception("Error, address entity returned ID -1");
 
+            //Add the user account
             context.UserAccounts.Add(new User
             {
                 AccountID = BusinessAccount.AccountId,
@@ -97,5 +99,6 @@ namespace ViFemWebShopV2.Models
 
             context.SaveChanges();
         }
+
     }
 }
