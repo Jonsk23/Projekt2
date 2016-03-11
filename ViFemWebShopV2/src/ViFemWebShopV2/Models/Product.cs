@@ -17,5 +17,6 @@ namespace ViFemWebShopV2.Models
         public string Description { get; set; }
         public bool IsActive { get; set; }
         public string ImageURL { get; set; }
+
     }
 }
