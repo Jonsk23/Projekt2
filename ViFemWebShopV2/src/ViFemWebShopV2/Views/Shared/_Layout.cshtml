@@ -73,18 +73,16 @@
                     <li>
                         <a href="/shop/contact" type ="button">Kontakt <span class="glyphicon glyphicon-envelope"></span></a>
                     </li>
-                    <td>
+                    <li>
                         <a href="/shop/kundvagn" type ="button" data-toggle="dropdown">Kundvagn <span class="glyphicon glyphicon-shopping-cart"></span><span class="caret"></span></a>
                             <!-- Lägg in nedan kod när modell finns!-->
-                            <table class="dropdown-menu">
-                                <tr>
-                                    <th>Product</th>
-                                    <th>Price</th>
-                                    <th>Quantity</th>
-                                </tr>
-  
+                          <ul class="dropdown-menu">
+                                <li>Produkt 1</li>
+                                <li>Produkt 1</li>
+                                <li>Produkt 1</li>
+                          
                                 <!--ändra till Model sen!-->
-                                @*@foreach (var item in )
+                                @*@foreach (var item in Model)
                                 {
                                     <tr>
                                         <td>@item.ProductName</td>
@@ -92,13 +90,9 @@
                                         <td>@item.Quantity <a href="#">+</a><a href="#">-</a></td>
                                     </tr>
                                 }*@
-                            </table>
-
-                            <li> Produkt 2</li>
-                            <li> Produkt 3</li>
                             <li><a href="/shop/checkout" class="glyphicon glyphicon-piggy-bank"> Gå till checkout</a></li>
                         </ul>
-</li>
+                    </li>
                     <li>
                         <a href="/shop/index" type ="button" data-toggle="dropdown">Mitt konto <span class="glyphicon glyphicon-user"></span><span class="caret"></span></a>
                         <ul class="dropdown-menu">
