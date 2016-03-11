@@ -22,11 +22,12 @@ namespace ViFemWebShopV2.Models
                 .Select(p => new ListProductVM
                 {
                     Name = p.ProductName,
-                    Category = context.Categories.ToList().Find(o=>o.CategoryID== p.CategoryID).CategoryName,
+                    Category = context.Categories.ToList().Find(o=>o.CategoryID == p.CategoryID).CategoryName,
                     Description = p.Description,
                     Price = p.Price
                 }).ToArray();
         }
+
 
         public void AddUser(AddUserVM viewModel)
         {

@@ -33,7 +33,6 @@ namespace ViFemWebShopV2.ViewModels
 
         [Display(Name = "Password")]
         [Required(ErrorMessage = "Password required")]
-        [EmailAddress(ErrorMessage = "Email adress is not valid")]
         public string Password { get; set; }
 
         [Display(Name = "Street")]
