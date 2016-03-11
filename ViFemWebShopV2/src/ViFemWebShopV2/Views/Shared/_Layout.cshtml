@@ -73,26 +73,27 @@
                     <li>
                         <a href="/shop/contact" type ="button">Kontakt <span class="glyphicon glyphicon-envelope"></span></a>
                     </li>
-                    <li>
+                    <td>
                         <a href="/shop/kundvagn" type ="button" data-toggle="dropdown">Kundvagn <span class="glyphicon glyphicon-shopping-cart"></span><span class="caret"></span></a>
-                        <ul class="dropdown-menu">
                             <!-- Lägg in nedan kod när modell finns!-->
-                            @*<table>
+                            <table class="dropdown-menu">
                                 <tr>
                                     <th>Product</th>
                                     <th>Price</th>
                                     <th>Quantity</th>
                                 </tr>
-                                @foreach (var item in Model)
+  
+                                <!--ändra till Model sen!-->
+                                @foreach (var item in )
                                 {
                                     <tr>
                                         <td>@item.ProductName</td>
                                         <td>@item.Price</td>
                                         <td>@item.Quantity <a href="#">+</a><a href="#">-</a></td>
                                     </tr>
-                                @*}
-                            </table>*@
-                            <li> Produkt 1</li>
+                                }
+                            </table>
+
                             <li> Produkt 2</li>
                             <li> Produkt 3</li>
                             <li><a href="/shop/checkout" class="glyphicon glyphicon-piggy-bank"> Gå till checkout</a></li>
