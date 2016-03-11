@@ -23,7 +23,9 @@ namespace ViFemWebShopV2.Controllers
 
         public IActionResult Products()
         {
-            return View();
+            DataManager dataManager = new DataManager(context);
+            var viewModel = dataManager.ListProducts();
+            return View(viewModel);
         }
 
         public IActionResult ProductCategory(string category)
@@ -51,6 +53,11 @@ namespace ViFemWebShopV2.Controllers
         {
             return View();
         }
-
+        public IActionResult Tempproducts()
+        {
+            DataManager dataManager = new DataManager(context);
+            var viewModel = dataManager.ListProducts();
+            return View(viewModel);
+        }
     }
 }
