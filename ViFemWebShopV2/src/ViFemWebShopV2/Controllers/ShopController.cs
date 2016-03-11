@@ -32,7 +32,7 @@ namespace ViFemWebShopV2.Controllers
         }
 
 
-        public IActionResult Kundvagn()
+        public IActionResult Checkout()
         {
             return View();
         }
@@ -51,5 +51,6 @@ namespace ViFemWebShopV2.Controllers
         {
             return View();
         }
+
     }
 }
