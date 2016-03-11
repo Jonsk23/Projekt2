@@ -36,7 +36,7 @@ namespace ViFemWebShopV2.Models
 
             ///Make sure the business account exists and password is correct
             if(BusinessAccount == null)
-                throw new Exception("ERROR This company number is not in the database");
+                throw new Exception("ERROR This company number (" + viewModel.CompanyNumber + ") is not in the database");
 
             if (BusinessAccount.Password != viewModel.CompanyPassword)
                 throw new Exception("ERROR Company Password is invalid");
