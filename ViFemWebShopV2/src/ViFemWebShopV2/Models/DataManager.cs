@@ -33,16 +33,18 @@ namespace ViFemWebShopV2.Models
             var BusinessAccount = 
                 context.BusinessAccounts.ToList().Find(o => o.RegistrationNumber == viewModel.CompanyNumber);
 
+            ///Make sure the business account exists and password is correct
             if(BusinessAccount == null)
                 throw new Exception("ERROR This company number is not in the database");
 
             if (BusinessAccount.Password != viewModel.Password)
                 throw new Exception("ERROR Company Password is invalid");
 
+            //Username needs to be unique in database
             if (context.UserAccounts.ToList().FindAll(o => o.UserName == viewModel.UserName).Count() > 0)
                 throw new Exception("ERROR Username already eists in database");
 
-
+            //Add an adress record for this user
             var newAdress =
                 context.Addresses.Add(new Address
                 {
@@ -95,20 +97,5 @@ namespace ViFemWebShopV2.Models
 
             context.SaveChanges();
         }
-
-        //public void AddOrder(AddOrderVM viewModel)
-        //{
-
-
-        //    context.Orders.Add(new Order
-        //    {
-
-
-
-        //    });
-
-
-
-        //}
     }
 }
