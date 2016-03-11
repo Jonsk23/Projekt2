@@ -8,11 +8,13 @@ namespace ViFemWebShopV2.Models
 {
     public class EshopContext : DbContext
     {
-
         public DbSet<Product> Products { get; set; }
         public DbSet<User> UserAccounts { get; set; }
         public DbSet<BusinessAccount> BusinessAccounts { get; set; }
         public DbSet<Address> Addresses { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderDetail> OrderDetails { get; set; }
+        public DbSet<Categories> Categories { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -20,6 +22,10 @@ namespace ViFemWebShopV2.Models
             modelBuilder.Entity<User>().ToTable("UserAccounts");
             modelBuilder.Entity<BusinessAccount>().ToTable("BusinessAccounts");
             modelBuilder.Entity<Address>().ToTable("Addresses");
+            modelBuilder.Entity<Order>().ToTable("Orders");
+            modelBuilder.Entity<OrderDetail>().ToTable("OrderDetails");
+            modelBuilder.Entity<Categories>().ToTable("Categories");
+
         }
     }
 }
