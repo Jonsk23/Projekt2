@@ -19,57 +19,77 @@
                     </h2>
                     <hr>
                 </div>
-                <div class="col-lg-12 text-center">
-                    <img class="img-responsive img-border img-full" src="img/slide-1.jpg" alt="">
-                    <h2>Produkter
-                        <br>
-                        <small>Lägg in nedan kod för att visa varukorgen när modell finns</small> 
+                <div class="box">
+                    <div class="col-lg-12 text-center">
+                        <h2 style="padding-bottom:20px">
+                            Produkter
+                        </h2>
+                        <hr />
+                        <p class="box">
+                            Lägg in nedan kod för att visa varukorgen när modell finns
+                            <br />
+                            <br />
+                            <a href="#" class="btn btn-default btn-lg">read more</a>
+                        </p>
                         @*<table>
-                        <tr>
-                            <th>Product</th>
-                            <th>Price</th>
-                            <th>Quantity</th>
-                        </tr>
-                        @foreach (var item in Model)
-                        {
-                        <tr>
-                            <td>@item.ProductName</td>
-                            <td>@item.Price</td>
-                            <td>@item.Quantity <a href="#">+</a><a href="#">-</a></td>
-                        </tr>
-                         @*}
-                        </table>*@
-  
-                    </h2>Välj betalningssätt
-                    <p></p>
-                    <a href="#" class="btn btn-default btn-lg">read more</a>
-                    <hr>
+                <tr>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                </tr>
+                @foreach (var item in Model)
+                {
+                <tr>
+                    <td>@item.ProductName</td>
+                    <td>@item.Price</td>
+                    <td>@item.Quantity <a href="#">+</a><a href="#">-</a></td>
+                </tr>
+                 @*}
+                </table>*@
+
+                    </div>
                 </div>
-                <div class="col-lg-12 text-center">
-                    <img class="img-responsive img-border img-full" src="img/slide-2.jpg" alt="">
-                    <h2>Välj leveranssätt
+                <br />
+                <br />
+                <div class="box">
+                    <div class="col-lg-12 text-center">
+                        <h2 style="padding-bottom:20px">
+                            Välj leveranssätt
+                        </h2>
+                        <hr />
+                        <h4>Leveransadress</h4>
+                        <p>Angiven leveransadress från Min profil. Ev möjlig att ändra?</p>
+                        <br />
+                        <h4>Leveranssätt</h4>
                         <br>
-                        <small>beskrivning</small>
-                    </h2>
-                    <p>lid est laborum dolo rumes fugats untras. etharums ser quidem rerum facilis dolores nemis omnis fugats vitaes nemo minima rerums unsers sadips amets. sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-                    <a href="#" class="btn btn-default btn-lg">read more</a>
-                    <hr>
+                            <input type="radio" name="radiolev" value="" /> Standardleverans (3-5 dagar)<br />
+                            <input type="radio" name="radiolev" value="" /> Expressleverans (1-2 dagar)<br />
+                        <br />
+                            <a href="#" class="btn btn-default btn-lg">read more</a>
+                    </div>
                 </div>
-                <div class="col-lg-12 text-center">
-                    <img class="img-responsive img-border img-full" src="img/slide-3.jpg" alt="">
-                    <h2>produkt 3
+                <br />
+                <div class="box">
+                    <div class="col-lg-12 text-center">
+                        <h2 style="padding-bottom:20px">
+                            Välj betalningssätt
+                        </h2>
+                        <hr />
                         <br>
-                        <small>beskrivning</small>
-                    </h2>
-                    <p>lid est laborum dolo rumes fugats untras. etharums ser quidem rerum facilis dolores nemis omnis fugats vitaes nemo minima rerums unsers sadips amets. sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-                    <a href="#" class="btn btn-default btn-lg">read more</a>
-                    <hr>
+                            <input type="radio" name="radio" value=""/> Faktura<br/>
+                            <input type="radio" name="radio" value="" /> Kortbetalning<br/>
+                            <input type="radio" name="radio" value="" /> Internetbank<br />
+                            <input type="radio" name="radio" value="" /> Bitcoin<br />
+                            <br />
+                            <a href="#" class="btn btn-default btn-lg">read more</a>
+                        <br />
+                        <br />
+                        <img class="img-responsive img-border img-full" src="~/img/bitcoin-accepted.png" alt="">
+                    </div>
                 </div>
                 <div class="col-lg-12 text-center">
                     <ul class="pager">
-                        <li class="previous"><a href="#">&larr; older</a>
-                        </li>
-                        <li class="next"><a href="#">newer &rarr;</a>
+                        <li class="btn-default" style="font-size:x-large"><a href="#" style="color:black">Betala & skicka beställning</a>
                         </li>
                     </ul>
                 </div>
