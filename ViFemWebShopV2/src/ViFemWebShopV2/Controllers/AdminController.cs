@@ -70,7 +70,7 @@ namespace ViFemWebShopV2.Controllers
             }
             catch (Exception ex)
             {
-                ModelState.AddModelError(string.Empty, "You don't want your business.");
+                ModelState.AddModelError(string.Empty, ex.Message);
                 Debug.WriteLine(ex.Message + " Inner: " + ex.InnerException.Message);
                 return View(viewModel);
             }
@@ -87,6 +87,11 @@ namespace ViFemWebShopV2.Controllers
         {
             if (!ModelState.IsValid)
                 return View(viewModel);
+
+            //DataManager dm = new DataManager(context);
+            //if(dm.Login(viewModel))
+            //  return RedirectToAction(nameof(ShopController.Index));
+            //var coockie = HttpContext.Session.
             return RedirectToAction(nameof(AdminController.Index));
         }
     }

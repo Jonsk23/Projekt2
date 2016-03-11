@@ -8,9 +8,6 @@ namespace ViFemWebShopV2.ViewModels
 {
     public class AddProductVM
     {
-        //  public string ProductID { get; set; }
-
-        
         [Display(Name = "Product name")]
         [Required(ErrorMessage = "Product name is required")]
         public string Name { get; set; }

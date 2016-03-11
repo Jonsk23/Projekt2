@@ -25,23 +25,8 @@ namespace ViFemWebShopV2.Models
             {
                 Debug.WriteLine("Reg number not found");
                 //ADD ERROR /THROW EXCEPTION SOMEHOW?
+
                 return; 
-            }
-
-            var newAdress =
-                context.Addresses.Add(new Address
-                {
-                    City = viewModel.City,
-                    Street = viewModel.Street,
-                    ZipCode = viewModel.ZipCode
-                });
-
-            context.SaveChanges();
-
-            if (newAdress == null)
-            {
-                //?
-                return;
             }
 
             context.UserAccounts.Add(new User
@@ -52,7 +37,7 @@ namespace ViFemWebShopV2.Models
                 FirstName = viewModel.FirstName,
                 LastName = viewModel.LastName,
                 Email = viewModel.Email,
-                DeliveryAddressID = newAdress.Entity.AddressID
+                DeliveryAddressID = 3
             });
 
             context.SaveChanges();
@@ -60,15 +45,23 @@ namespace ViFemWebShopV2.Models
 
         public void AddProduct(AddProductVM viewModel)
         {
+            if (context.Products.ToList().FindAll(o => o.ProductName.ToUpper() == viewModel.Name.ToUpper()).Count() > 0)
+                throw new Exception("Error, this product name already exists");
+
+            var thisCategory = context.Categories.ToList().Find(o => o.CategoryName.ToUpper() == viewModel.Category.ToUpper());
+
+            if (thisCategory == null)
+                throw new Exception("Error, category " + viewModel.Category + " does not exist");
+
             context.Products.Add(new Product
             {
-                Name = viewModel.Name,
-                //ProductID = viewModel.ProductID,
+                ProductName = viewModel.Name,
                 Price = viewModel.Price,
                 Description = viewModel.Description,
                 ItemsInStock = viewModel.ItemsInStock,
-                Category = viewModel.Category
+                CategoryID = thisCategory.CategoryID,
             });
+
             context.SaveChanges();
         }
     }
