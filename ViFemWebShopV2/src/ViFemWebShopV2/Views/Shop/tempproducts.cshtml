@@ -1,4 +1,7 @@
-﻿@{
+﻿@using ViFemWebShopV2.ViewModels
+@model ListProductVM[]
+
+@{
 
     ViewBag.Title = "Produkter";
     Layout = "~/Views/Shared/_Layout";
@@ -35,31 +38,32 @@
                 </h2>
                 <hr>
             </div>
-
-            @*En produkt som ska loopar för varje produkt*@
-            <div class="col-sm-4 col-lg-4 col-md-4">
-                <div class="thumbnail">
-                    <img src="http://placehold.it/320x150" alt="">
-                    <div class="caption">
-                        <h4 class="pull-right">*Priset* 0.00 SEK</h4>
-                        <h4>
-                            <a href="#">En produkt</a>
-                        </h4>
-                        <p>Beskrivning av produkten.</p>
-                    </div>
-                    <div class="addtocart">
-                        <p class="pull-right"><a href="#">Lägg i kundvagn</a></p>
-                        <p>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                        </p>
+            @foreach (var item in Model)
+            {
+                @*En produkt som ska loopar för varje produkt*@
+                <div class="col-sm-4 col-lg-4 col-md-4">
+                    <div class="thumbnail">
+                        <img src="@item.ImageURL" alt="">
+                        <div class="caption">
+                            <h4 class="pull-right">@item.Price</h4>
+                            <h4>
+                                <a href="#">@item.Name</a>
+                            </h4>
+                            <p>@item.Description</p>
+                        </div>
+                        <div class="addtocart">
+                            <p class="pull-right"><a href="#">Lägg i kundvagn</a></p>
+                            <p>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                            </p>
+                        </div>
                     </div>
                 </div>
-            </div>
-
+            }
             <div class="clearfix"></div>
         </div>
     </div>

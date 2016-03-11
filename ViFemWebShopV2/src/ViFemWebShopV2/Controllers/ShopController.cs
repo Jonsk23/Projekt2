@@ -55,7 +55,9 @@ namespace ViFemWebShopV2.Controllers
         }
         public IActionResult Tempproducts()
         {
-            return View();
+            DataManager dataManager = new DataManager(context);
+            var viewModel = dataManager.ListProducts();
+            return View(viewModel);
         }
     }
 }
