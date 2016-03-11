@@ -74,8 +74,8 @@ namespace ViFemWebShopV2.Models
 
         public void AddProduct(AddProductVM viewModel)
         {
-            if (context.Products.ToList().FindAll(o => o.ProductName.ToUpper() == viewModel.Name.ToUpper()).Count() > 0)
-                throw new Exception("Error, this product name already exists");
+            if (context.Products.ToList().Find(o => o.ProductName.ToUpper() == viewModel.Name.ToUpper()) != null)
+                throw new Exception("Error, the product name " + viewModel.Name + " already exists");
 
             var thisCategory = context.Categories.ToList().Find(o => o.CategoryName.ToUpper() == viewModel.Category.ToUpper());
 
