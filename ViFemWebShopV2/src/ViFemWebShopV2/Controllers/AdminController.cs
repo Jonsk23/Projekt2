@@ -97,9 +97,8 @@ namespace ViFemWebShopV2.Controllers
             //CookieOptions cookieOptions = new CookieOptions();
             //cookieOptions.Expires.
             //  return RedirectToAction(nameof(ShopController.Index));
-            //var coockie = HttpContext.Session.
             //var cookie = Request.Cookies["userid"].Count() > 0;
-            return RedirectToAction(nameof(ShopController.Index));
+            return RedirectToAction("Index", "Shop");
         }
     }
 }
