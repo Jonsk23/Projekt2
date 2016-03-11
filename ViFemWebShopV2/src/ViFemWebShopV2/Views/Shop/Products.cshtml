@@ -47,9 +47,11 @@
                 </h2>
                 <hr>
             </div>
+
+            @*Här loopas de utplockade produkterna upp*@
             @foreach (var item in Model)
             {
-                @*En produkt som ska loopar för varje produkt*@
+                
                 <div class="col-sm-4 col-lg-4 col-md-4">
                     <div class="thumbnail">
                         <img src="@item.ImageURL" alt="">

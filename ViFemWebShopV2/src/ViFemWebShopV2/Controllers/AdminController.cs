@@ -7,6 +7,7 @@ using ViFemWebShopV2.ViewModels;
 using ViFemWebShopV2.Models;
 using System.Diagnostics;
 using Microsoft.AspNet.Http;
+using Microsoft.AspNet.Mvc.Rendering;
 
 namespace ViFemWebShopV2.Controllers
 {
@@ -21,14 +22,21 @@ namespace ViFemWebShopV2.Controllers
         public IActionResult Index()
         {
             return View();
-        }
+        } 
 
         public IActionResult AddProduct()
         {
-            return View();
+            var model = new AddProductVM();
+            model.Categories = new SelectListItem[]
+            {
+                new SelectListItem { Text ="Papper och block", Value="Papper Block" },
+                new SelectListItem { Text ="Pennor och ritmaterial", Value="Pennor Ritmaterial" },
+                new SelectListItem { Text ="Sorting och förvaring", Value="Sortering Förvaring" }
+            };
+            return View(model);
         }
 
-        [HttpPost]
+            [HttpPost]
         public IActionResult AddProduct(AddProductVM viewModel)
         {
             if (!ModelState.IsValid)

@@ -61,8 +61,8 @@
                             <td>
                                 <label asp-for="Category"></label>
                             </td>
-                            <td>
-                                <input asp-for="Category" />
+                            <td>                                
+                                <select asp-for="Category" asp-items="Model.Categories"></select>
                                 <span asp-validation-for="Category"></span>
                             </td>
                         </tr>
