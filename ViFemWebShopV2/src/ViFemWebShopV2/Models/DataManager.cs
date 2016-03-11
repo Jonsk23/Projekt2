@@ -18,6 +18,12 @@ namespace ViFemWebShopV2.Models
 
         public void AddUser(AddUserVM viewModel)
         {
+            if(context.UserAccounts.ToList().FindAll(o => o.UserName.ToUpper() == viewModel.UserName.ToUpper()).Count() > 0)
+            {
+                Debug.WriteLine("User already exists");
+                throw new Exception("Error, user " + viewModel.UserName + " already exists.");
+            }
+
             var BusinessAccount = 
                 context.BusinessAccounts.ToList().Find(o => o.RegistrationNumber == viewModel.CompanyNumber);
 
@@ -28,10 +34,10 @@ namespace ViFemWebShopV2.Models
                 return; 
             }
 
-            if(BusinessAccount.Password != viewModel.Password)
+            if(BusinessAccount.Password != viewModel.CompanyPassword)
             {
                 // Throw exception / Error
-                Debug.WriteLine("Incorrect password");
+                Debug.WriteLine("Incorrect password " + BusinessAccount.Password + " " + viewModel.Password);
                 return;
             }
 
