@@ -4,14 +4,16 @@
 }
 
 
-<div class="row">
+<div class="row" style="padding-bottom: 200px">
     <div class="box">
-        <div class="col-lg-12">
+        <div class="col-lg-12" align="center">
             <form asp-controller="Admin" asp-action="Login">
-                <table align="center">
-                    <caption>
-                        <h1>Login</h1>
-                    </caption>
+                <hr />
+                <h1 style="padding-bottom: 20px">
+                    Logga in
+                    <hr />
+                </h1>
+                <table>
                     <tr>
                         <td  style="padding-bottom: 5px;"><label asp-for="UserName"></label></td>
                     </tr>
@@ -31,7 +33,7 @@
                         <td style="padding-bottom: 20px;"><span asp-validation-for="Password"></span></td>
                     </tr>
                     <tr>
-                        <td colspan="3" align="center"><input type="submit" value="Login" /></td>
+                        <td colspan="3" align="center"><input type="submit" value="OK" /></td>
                     </tr>
                 </table>
             </form>

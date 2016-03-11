@@ -8,11 +8,12 @@ namespace ViFemWebShopV2.ViewModels
 {
     public class LoginVM
     {
-        [Required(ErrorMessage = "Enter username")]
-        [Display(Name = "User name")]
+        [Required(ErrorMessage = "Ange användarnamn")]
+        [Display(Name = "Användarnamn")]
         public string UserName { get; set; }
 
-        [Required(ErrorMessage = "enter password")]
+        [Required(ErrorMessage = "Ange lösenord")]
+        [Display(Name = "Lösenord")]
         public string Password { get; set; }
 
         public bool IsLoggedIn { get; set; }
