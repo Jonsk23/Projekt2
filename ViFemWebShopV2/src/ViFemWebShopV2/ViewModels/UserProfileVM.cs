@@ -11,8 +11,10 @@ namespace ViFemWebShopV2.ViewModels
         // Här ska inloggade kunder se sin medlemsinfo
         // och även sin orderhistorik.
 
-            //Hämta informationen från kakan
-        
+        //Hämta informationen från kakan
+
+        //Kan en lista hämtas och i så fall hur många proppar kommer behövas?
+
 
         public string Email { get; set; }
 
