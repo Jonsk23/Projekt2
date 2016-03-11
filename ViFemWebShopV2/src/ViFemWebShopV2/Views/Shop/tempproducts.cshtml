@@ -1,0 +1,73 @@
+﻿@{
+
+    ViewBag.Title = "Produkter";
+    Layout = "~/Views/Shared/_Layout";
+}
+
+<div class="container">
+
+    <div class="row">
+        <div class="box">
+            <div class="col-lg-12">
+                <hr>
+                <h2 class="intro-text text-center">
+                    Om
+                    <strong>våra produkter</strong>
+                </h2>
+                <hr>
+            </div>
+            <div class="col-md-6">
+                <img class="img-responsive img-border-left" src="~/img/slide-2.jpg" alt="">
+            </div>
+            <div class="col-md-6">
+                <p>Blablabla.</p>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="box">
+            <div class="col-lg-12">
+                <hr>
+                <h2 class="intro-text text-center">
+                    Produktkategori:
+                    <strong>kategori</strong>
+                </h2>
+                <hr>
+            </div>
+
+            @*En produkt som ska loopar för varje produkt*@
+            <div class="col-sm-4 col-lg-4 col-md-4">
+                <div class="thumbnail">
+                    <img src="http://placehold.it/320x150" alt="">
+                    <div class="caption">
+                        <h4 class="pull-right">*Priset* 0.00 SEK</h4>
+                        <h4>
+                            <a href="#">En produkt</a>
+                        </h4>
+                        <p>Beskrivning av produkten.</p>
+                    </div>
+                    <div class="addtocart">
+                        <p class="pull-right"><a href="#">Lägg i kundvagn</a></p>
+                        <p>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="clearfix"></div>
+        </div>
+    </div>
+
+</div>
+<!-- /.container -->
+
+@section script{
+    <script src="~/scripts/jquery.validate.js"></script>
+    <script src="~/scripts/jquery.validate.unobtrusive.js"></script>
+}
