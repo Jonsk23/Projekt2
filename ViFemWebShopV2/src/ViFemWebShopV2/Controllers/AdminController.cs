@@ -89,15 +89,25 @@ namespace ViFemWebShopV2.Controllers
             if (!ModelState.IsValid)
                 return View(viewModel);
 
-            //DataManager dm = new DataManager(context);
-            //if (dm.Login(viewModel))
-            Response.Cookies.Append("userid", "1");
-            //else
-            //  return View(errormessage);
+            DataManager dm = new DataManager(context);
+            var user = dm.Login(viewModel);
+            if (user != null)
+                Response.Cookies.Append("userid", user.ClientID.ToString());
+            else
+                return View(viewModel);
             //CookieOptions cookieOptions = new CookieOptions();
             //cookieOptions.Expires.
             //  return RedirectToAction(nameof(ShopController.Index));
             //var cookie = Request.Cookies["userid"].Count() > 0;
+            return RedirectToAction("Index", "Shop");
+        }
+
+        public IActionResult Logout()
+        {
+            CookieOptions co = new CookieOptions();
+            co.Expires = DateTime.Now.AddDays(-1);
+            Response.Cookies.Append("userid", "", co);
+
             return RedirectToAction("Index", "Shop");
         }
     }

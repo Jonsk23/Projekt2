@@ -10,7 +10,7 @@ namespace ViFemWebShopV2.ViewModels
     {
         // public int BusinessAccount { get; internal set; }
         // public int ClientID { get; internal set; }
-        // public string DeliveryAddress { get; internal set; }
+        //public string DeliveryAddress { get; internal set; }
         [Display(Name = "Company Number")]
         [Required(ErrorMessage = "Company Number required")]
         public string CompanyNumber { get; set; }

@@ -91,5 +91,23 @@ namespace ViFemWebShopV2.Models
 
             context.SaveChanges();
         }
+        static List<User> fakelist = new List<User>();
+        static DataManager()
+        {
+            fakelist.Add(new User { UserName = "jens", Password = "p" });
+
+        }
+        public User Login(LoginVM viewModel)
+        {
+            try
+            {
+                return fakelist.Where(o => o.UserName == viewModel.UserName && o.Password == viewModel.Password).Single();
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e.Message);
+                return null;
+            }
+        }
     }
 }
