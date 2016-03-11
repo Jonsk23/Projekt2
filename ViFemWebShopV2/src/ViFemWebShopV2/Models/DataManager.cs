@@ -42,7 +42,7 @@ namespace ViFemWebShopV2.Models
 
             //Username needs to be unique in database
             if (context.UserAccounts.ToList().FindAll(o => o.UserName == viewModel.UserName).Count() > 0)
-                throw new Exception("ERROR Username already eists in database");
+                throw new Exception("ERROR Username already exists in database");
 
             //Add an adress record for this user
             var newAdress =
