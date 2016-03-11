@@ -55,6 +55,8 @@ namespace ViFemWebShopV2.Models
 
             if (newAdress == null)
                 throw new Exception("Error generating adress");
+            else if (newAdress.Entity.AddressID < 0)
+                throw new Exception("Error, address entity returned ID -1");
 
             context.UserAccounts.Add(new User
             {
