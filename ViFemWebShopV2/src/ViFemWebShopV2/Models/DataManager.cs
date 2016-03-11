@@ -25,8 +25,23 @@ namespace ViFemWebShopV2.Models
             {
                 Debug.WriteLine("Reg number not found");
                 //ADD ERROR /THROW EXCEPTION SOMEHOW?
-
                 return; 
+            }
+
+            var newAdress =
+                context.Addresses.Add(new Address
+                {
+                    City = viewModel.City,
+                    Street = viewModel.Street,
+                    ZipCode = viewModel.ZipCode
+                });
+
+            context.SaveChanges();
+
+            if (newAdress == null)
+            {
+                //?
+                return;
             }
 
             context.UserAccounts.Add(new User
@@ -37,7 +52,7 @@ namespace ViFemWebShopV2.Models
                 FirstName = viewModel.FirstName,
                 LastName = viewModel.LastName,
                 Email = viewModel.Email,
-                DeliveryAddressID = 3
+                DeliveryAddressID = newAdress.Entity.AddressID
             });
 
             context.SaveChanges();
