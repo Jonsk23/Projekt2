@@ -94,5 +94,20 @@ namespace ViFemWebShopV2.Models
 
             context.SaveChanges();
         }
+
+        //public void AddOrder(AddOrderVM viewModel)
+        //{
+
+
+        //    context.Orders.Add(new Order
+        //    {
+
+
+
+        //    });
+
+
+
+        //}
     }
 }
