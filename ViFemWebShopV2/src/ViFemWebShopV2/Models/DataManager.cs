@@ -17,7 +17,7 @@ namespace ViFemWebShopV2.Models
         }
 
         public ListProductVM[] ListProducts()
-        {
+        { 
             return context.Products
                 .Select(p => new ListProductVM
                 {
