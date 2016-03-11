@@ -89,6 +89,7 @@ namespace ViFemWebShopV2.Models
                 Description = viewModel.Description,
                 Stock = viewModel.Stock,
                 CategoryID = thisCategory.CategoryID,
+                IsActive = true
             });
 
             context.SaveChanges();
