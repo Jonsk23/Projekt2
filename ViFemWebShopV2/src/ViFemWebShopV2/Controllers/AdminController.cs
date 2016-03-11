@@ -29,9 +29,14 @@ namespace ViFemWebShopV2.Controllers
             var model = new AddProductVM();
             model.Categories = new SelectListItem[]
             {
-                new SelectListItem { Text ="Papper och block", Value="Papper Block" },
-                new SelectListItem { Text ="Pennor och ritmaterial", Value="Pennor Ritmaterial" },
-                new SelectListItem { Text ="Sorting och förvaring", Value="Sortering Förvaring" }
+                new SelectListItem { Text ="[Välj en kategori]", Value="" },
+                new SelectListItem { Text ="Konferens & presentation", Value="Konference Presentation" },
+                new SelectListItem { Text ="Kuvert, post & emballage", Value="Kuvert Post Emballage" },
+                new SelectListItem { Text ="Almanackor & kalendrar", Value="Almanackor Kalendrar" },
+                new SelectListItem { Text ="Skrivbordstillbehör", Value="Skrivbordstillbehör" },
+                new SelectListItem { Text ="Papper & block", Value="Papper Block" },
+                new SelectListItem { Text ="Pennor & ritmaterial", Value="Pennor Ritmaterial" },
+                new SelectListItem { Text ="Sorting & förvaring", Value="Sortering Förvaring" }
             };
             return View(model);
         }
