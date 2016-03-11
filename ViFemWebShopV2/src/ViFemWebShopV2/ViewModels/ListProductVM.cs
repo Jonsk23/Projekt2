@@ -15,7 +15,7 @@ namespace ViFemWebShopV2.ViewModels
         public string Category { get; set; }
 
         [Display(Description = "Pris: ")]
-        public int Price { get; set; }
+        public double Price { get; set; }
 
         [Display(Description = "Beskrivning: ")]
         public string Description { get; set; }
