@@ -14,10 +14,10 @@ namespace ViFemWebShopV2.ViewModels
 
         [Required(ErrorMessage = "Quantity is required")]
         [Display(Name = "Quantity")]
-        public int ItemsInStock { get; set; }
+        public int Stock { get; set; }
 
         [Required(ErrorMessage = "The product must have a price")]
-        public int Price { get; set; }
+        public double Price { get; set; }
 
         [Required(ErrorMessage = "Description is required")]
         public string Description { get; set; }
