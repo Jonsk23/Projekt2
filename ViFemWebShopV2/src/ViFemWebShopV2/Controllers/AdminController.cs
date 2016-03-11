@@ -44,7 +44,7 @@ namespace ViFemWebShopV2.Controllers
             catch (Exception ex)
             {
                 ModelState.AddModelError(string.Empty, "Vi har tyvärr inte plats i lagret för denna produkt. Gå till styrelsen och begär att bygga ut.");
-                Debug.WriteLine(ex.Message + " Inner: " + ex.InnerException.Message);
+                Debug.WriteLine(ex.Message);
                 return View(viewModel);
             }
             return RedirectToAction(nameof(AdminController.Index));
@@ -72,7 +72,7 @@ namespace ViFemWebShopV2.Controllers
             catch (Exception ex)
             {
                 ModelState.AddModelError(string.Empty, ex.Message);
-                Debug.WriteLine(ex.Message + " Inner: " + ex.InnerException.Message);
+                Debug.WriteLine(ex.Message);
                 return View(viewModel);
             }
             return RedirectToAction(nameof(AdminController.Index));

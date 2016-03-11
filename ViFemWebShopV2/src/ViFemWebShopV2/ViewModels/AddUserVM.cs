@@ -8,9 +8,6 @@ namespace ViFemWebShopV2.ViewModels
 {
     public class AddUserVM
     {
-        // public int BusinessAccount { get; internal set; }
-        // public int ClientID { get; internal set; }
-        // public string DeliveryAddress { get; internal set; }
         [Display(Name = "Company Number")]
         [Required(ErrorMessage = "Company Number required")]
         public string CompanyNumber { get; set; }
@@ -36,7 +33,6 @@ namespace ViFemWebShopV2.ViewModels
 
         [Display(Name = "Password")]
         [Required(ErrorMessage = "Password required")]
-        //[RegularExpression(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\da-zA-Z]).{8,15}$", ErrorMessage = "Password need to contain at least 1 number, 1 lowercase letter and 1 uppercase letter. Only letters A-Z are allowed.")]
         public string Password { get; set; }
 
         [Display(Name = "Street")]

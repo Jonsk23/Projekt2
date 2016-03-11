@@ -20,6 +20,5 @@ namespace ViFemWebShopV2.ViewModels
 
         [Display(Description = "Beskrivning: ")]
         public string Description { get; set; }
-
     }
 }
