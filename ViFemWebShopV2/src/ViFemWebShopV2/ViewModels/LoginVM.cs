@@ -14,5 +14,7 @@ namespace ViFemWebShopV2.ViewModels
 
         [Required(ErrorMessage = "enter password")]
         public string Password { get; set; }
+
+        public bool IsLoggedIn { get; set; }
     }
 }
