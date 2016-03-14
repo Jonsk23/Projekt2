@@ -12,17 +12,18 @@ using Microsoft.AspNet.Mvc.Rendering;
 namespace ViFemWebShopV2.Controllers
 {
     public class AdminController : Controller
-    { 
+    {
         EshopContext context;
         public AdminController(EshopContext context)
         {
             this.context = context;
         }
 
+
         public IActionResult Index()
         {
             return View();
-        } 
+        }
 
         public IActionResult AddProduct()
         {
@@ -41,7 +42,7 @@ namespace ViFemWebShopV2.Controllers
             return View(model);
         }
 
-            [HttpPost]
+        [HttpPost]
         public IActionResult AddProduct(AddProductVM viewModel)
         {
             if (!ModelState.IsValid)
@@ -51,8 +52,8 @@ namespace ViFemWebShopV2.Controllers
 
             try
             {
-            DataManager dataManager = new DataManager(context);
-            dataManager.AddProduct(viewModel);
+                DataManager dataManager = new DataManager(context);
+                dataManager.AddProduct(viewModel);
             }
             catch (Exception ex)
             {
@@ -125,6 +126,7 @@ namespace ViFemWebShopV2.Controllers
             CookieOptions co = new CookieOptions();
             co.Expires = DateTime.Now.AddDays(-1);
             Response.Cookies.Append("username", "", co);
+            Response.Cookies.Append("cart", "", co);
 
             return RedirectToAction("Index", "Shop");
         }

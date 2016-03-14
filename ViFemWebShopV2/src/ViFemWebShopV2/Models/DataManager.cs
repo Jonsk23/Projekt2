@@ -10,6 +10,7 @@ namespace ViFemWebShopV2.Models
     public class DataManager
     {
         EshopContext context;
+        static List<ShopCartItemVM> cart = new List<ShopCartItemVM>();
 
         public DataManager(EshopContext context)
         {
@@ -131,8 +132,16 @@ namespace ViFemWebShopV2.Models
             {
                 orderVms.Add(new OrderVM { Ordernumber = item.OrderId, OrderDate = item.CreatedDate.ToString("yyyyMMdd"), Status = item.Status });
             }
-            var addUser = new AddUserVM { FirstName = user.FirstName, LastName = user.LastName, Email = user.Email, City = address.City,
-                Street = address.Street, ZipCode = address.ZipCode, UserName = user.UserName };
+            var addUser = new AddUserVM
+            {
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                Email = user.Email,
+                City = address.City,
+                Street = address.Street,
+                ZipCode = address.ZipCode,
+                UserName = user.UserName
+            };
 
             userProfileVM.addUser = addUser;
 
@@ -144,6 +153,36 @@ namespace ViFemWebShopV2.Models
             return userProfileVM;
             //viewModel.orderHistory = 
 
+        }
+
+        public void AddToCart(string name, string username)
+        {
+            if (cart.Where(o => o.UserName == username && o.ProductName == name).Count() > 0)
+            {
+                cart.Where(o => o.UserName == username && o.ProductName == name)
+                    .Single().Quantity++;
+            }
+            else
+            {
+                var product = GetProductByName(name, username);
+                cart.Add(product);
+            }
+        }
+
+        public List<ShopCartItemVM> GetCart(string username)
+        {
+            return cart.Where(o => o.UserName == username).ToList();
+        }
+
+        ShopCartItemVM GetProductByName(string name, string username)
+        {
+            return context.Products.Where(o => o.ProductName == name).Select(o => new ShopCartItemVM
+            {
+                ProductName = o.ProductName,
+                Price = o.Price,
+                Quantity = 1,
+                UserName = username
+            }).Single();
         }
     }
 }

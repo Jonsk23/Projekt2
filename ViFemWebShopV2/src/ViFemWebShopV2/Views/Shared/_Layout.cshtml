@@ -13,7 +13,6 @@
     <script src="/scripts/jquery.js"></script>
     <!-- Bootstrap Core JavaScript -->
     <script src="/scripts/bootstrap.js"></script>
-    @RenderSection("script", false)
 
     <!-- Bootstrap Core CSS -->
     <link href="~/css/bootstrap.css" rel="stylesheet" />
@@ -55,11 +54,11 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li>      
-                        <a href="/shop/index" type ="button">Hem <span class="glyphicon glyphicon-home"></span></a>
+                    <li>
+                        <a href="/shop/index" type="button">Hem <span class="glyphicon glyphicon-home"></span></a>
                     </li>
                     <li>
-                        <a href="/shop/products" type ="button" data-toggle="dropdown">Produkter <span class="glyphicon glyphicon-pencil"></span><span class="caret"></span></a>
+                        <a href="/shop/products" type="button" data-toggle="dropdown">Produkter <span class="glyphicon glyphicon-pencil"></span><span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="/shop/products" class="glyphicon glyphicon-file"> Papper & Block</a></li>
                             <li><a href="/shop/products" class="glyphicon glyphicon-pencil"> Pennor & Ritmaterial</a></li>
@@ -68,32 +67,42 @@
                             <li><a href="/shop/products" class="glyphicon glyphicon-calendar"> Almanackor & Kalendrar</a></li>
                             <li><a href="/shop/products" class="glyphicon glyphicon-scissors"> Skrivbordstillbehör</a></li>
                             <li><a href="/shop/products" class="glyphicon glyphicon-blackboard"> Konferens & Presentation</a></li>
-                        </ul>  
-                    </li>
-                    <li>
-                        <a href="/shop/contact" type ="button">Kontakt <span class="glyphicon glyphicon-envelope"></span></a>
-                    </li>
-                    <li>
-                        <a href="/shop/checkout" type ="button" data-toggle="dropdown">Kundvagn <span class="glyphicon glyphicon-shopping-cart"></span><span class="caret"></span></a>
-                          <ul class="dropdown-menu">
-                                <li>Produkt 1</li>
-                                <li>Produkt 1</li>
-                                <li>Produkt 1</li>
-                          
-                                <!--ändra till Model sen!-->
-                                @*@foreach (var item in Model)
-                                {
-                                    <tr>
-                                        <td>@item.ProductName</td>
-                                        <td>@item.Price</td>
-                                        <td>@item.Quantity <a href="#">+</a><a href="#">-</a></td>
-                                    </tr>
-                                }*@
-                            <li><a href="/shop/checkout" class="glyphicon glyphicon-piggy-bank"> Gå till checkout</a></li>
                         </ul>
                     </li>
                     <li>
-                        <a href="/shop/index" type ="button" data-toggle="dropdown">Mitt konto <span class="glyphicon glyphicon-user"></span><span class="caret"></span></a>
+                        <a href="/shop/contact" type="button">Kontakt <span class="glyphicon glyphicon-envelope"></span></a>
+                    </li>
+                    <li>
+                        <a href="/shop/cart" class="glyphicon glyphicon-shopping-cart">Kundvagn</a>
+                        @*<a href="/shop/checkout" data-toggle="dropdown">Kundvagn <span class="glyphicon glyphicon-shopping-cart"></span><span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+
+                                }
+
+                                <li>Produkt 1</li>
+                                <li>Produkt 1</li>
+                                <li>Produkt 1</li>*@
+
+                        <!--ändra till Model sen!-->
+                        @*@foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.ProductName</td>
+                                    <td>@item.Price</td>
+                                    <td>@item.Quantity <a href="#">+</a><a href="#">-</a></td>
+                                </tr>
+                            }*@
+                        @*<li><a href="/shop/checkout" class="glyphicon glyphicon-piggy-bank"> Gå till checkout</a></li>
+
+                                }
+                                else
+                                {
+                                <li><a href="/admin/login" class="glyphicon glyphicon-piggy-bank">Logga in</a></li>
+                                }
+                            </ul>*@
+                    </li>
+                    <li>
+                        <a href="/shop/index" type="button" data-toggle="dropdown">Mitt konto <span class="glyphicon glyphicon-user"></span><span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             @if (Context.Request.Cookies["username"].Count() > 0)
                             {
@@ -106,7 +115,7 @@
                                 <li><a href="/admin/login" class="glyphicon glyphicon-log-in"> Logga in</a></li>
 
                             }
-                        </ul>  
+                        </ul>
                     </li>
                 </ul>
             </div>
@@ -126,5 +135,6 @@
             </div>
         </div>
     </footer>
+    @RenderSection("script", false)
 </body>
 </html>

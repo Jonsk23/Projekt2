@@ -62,7 +62,11 @@
                             <p><small>@item.Description</small></p>
                         </div>
                         <div class="addtocart">
-                            <a href="#" class="btn btn-default btn-group-sm pull-right">Lägg i kundvagnen</a>
+                            @if (Context.Request.Cookies["username"].Count > 0)
+                        {
+                            <a href="#" id="@item.Name" class="btn btn-default btn-group-sm pull-right">Lägg i kundvagnen</a>
+                                @*<input type="button" class="btn btn-default btn-group-sm pull-right addToCart" id="@item.Name" value="Lägg i kundvagnen" />*@
+                        }
                         </div>
                         <br />
                         <br />
@@ -76,6 +80,11 @@
 <!-- /.container -->
 
 @section script{
-    <script src="~/scripts/jquery.validate.js"></script>
-    <script src="~/scripts/jquery.validate.unobtrusive.js"></script>
+    <script>
+        $("a").click(function () {
+            var id = $(this).attr("id");
+            $.post("/shop/addtocart", { "name": id }, function (r) {
+            });
+        });
+    </script>
 }
