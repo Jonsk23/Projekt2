@@ -12,7 +12,7 @@ using Microsoft.AspNet.Mvc.Rendering;
 namespace ViFemWebShopV2.Controllers
 {
     public class AdminController : Controller
-    {
+    { 
         EshopContext context;
         public AdminController(EshopContext context)
         {
@@ -109,8 +109,9 @@ namespace ViFemWebShopV2.Controllers
             DataManager dm = new DataManager(context);
             var user = dm.Login(viewModel);
             if (user != null)
-                Response.Cookies.Append("userid", user.ClientID.ToString());
+                Response.Cookies.Append("username", user.UserName.ToString());
             else
+                //ModelState.AddModelError("loginerror", "Lösenord och/eller användarnamn är felaktigt");
                 return View(viewModel);
             //CookieOptions cookieOptions = new CookieOptions();
             //cookieOptions.Expires.
@@ -123,7 +124,7 @@ namespace ViFemWebShopV2.Controllers
         {
             CookieOptions co = new CookieOptions();
             co.Expires = DateTime.Now.AddDays(-1);
-            Response.Cookies.Append("userid", "", co);
+            Response.Cookies.Append("username", "", co);
 
             return RedirectToAction("Index", "Shop");
         }
